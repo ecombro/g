@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false};
+const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false,railReferenceLayer:null};
 const OFFICIAL={
  base:"https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html",
  wetering:"https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html",
@@ -29,6 +29,12 @@ function makeMap(){
  const osm=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"});
  const carto=L.tileLayer("https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:19,attribution:"© CARTO © OpenStreetMap"});
  osm.addTo(state.map);let errors=0;osm.on("tileerror",()=>{if(++errors===6){state.map.removeLayer(osm);carto.addTo(state.map);showStatus("Alternatieve straatkaart geladen") }});
+
+ // OpenRailwayMap is a rail-infrastructure overlay (TRAM + METRO + TRAIN).
+ // It is a fallback reference, never proof of taxi access.
+ state.railReferenceLayer=L.tileLayer("https://tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",{
+   maxZoom:19,opacity:.75,attribution:"OpenRailwayMap © OpenStreetMap contributors"
+ }).addTo(state.map);
  state.markers=L.featureGroup().addTo(state.map);
 }
 function markers(){
@@ -124,6 +130,7 @@ function addInfraLayer(geo,kind,source){
   });
   const prev=isTram?state.tramLayer:state.busLayer;
   if(prev && state.map.hasLayer(prev))state.map.removeLayer(prev);
+  if(isTram&&state.railReferenceLayer&&state.map.hasLayer(state.railReferenceLayer))state.map.removeLayer(state.railReferenceLayer);
   if(isTram)state.tramLayer=layer;
   else state.busLayer=layer;
   if(isTram?state.tramVisible:state.busVisible)layer.addTo(state.map);
@@ -176,7 +183,7 @@ async function loadInfra(kind){
    }
    addInfraLayer(geo,kind,source);
  }catch(err){
-   statusForLayer(kind,"Niet geladen — OSM-bron niet bereikbaar");
+   statusForLayer(kind,kind==="tram"?"Spoornet zichtbaar (tram/trein/metro), tramdetail nog niet geladen":"Geen busbaangegevens geladen — bron niet bereikbaar");
    showStatus((kind==="tram"?"Tramsporen":"Busbanen")+" niet beschikbaar. De kaartpunten blijven zichtbaar.");
  }
 }
@@ -184,6 +191,7 @@ function toggleInfra(kind){
  const tram=kind==="tram",layer=tram?state.tramLayer:state.busLayer;
  if(tram)state.tramVisible=!state.tramVisible;else state.busVisible=!state.busVisible;
  const visible=tram?state.tramVisible:state.busVisible;
+ if(tram && !layer && state.railReferenceLayer && state.map){if(visible)state.railReferenceLayer.addTo(state.map);else state.map.removeLayer(state.railReferenceLayer);}
  if(layer && state.map){
    if(visible)layer.addTo(state.map);else state.map.removeLayer(layer);
  }else if(visible){
