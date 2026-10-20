@@ -1,0 +1,33 @@
+name: Build Amsterdam OV map layers
+on:
+  push:
+    paths:
+      - scripts/build-tap-ov-layers.py
+      - .github/workflows/tap-ov-map.yml
+  workflow_dispatch:
+  schedule:
+    - cron: "25 4 * * 1"
+permissions:
+  contents: write
+jobs:
+  fetch-ov:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch and validate OpenStreetMap tram and bus geometries
+        run: python scripts/build-tap-ov-layers.py
+      - name: Commit updated tram and bus layers
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tap-amsterdam/tramsporen.geojson tap-amsterdam/busbanen-osm.geojson tap-amsterdam/osm-layers-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Amsterdam OSM tram and bus infrastructure layers"
+            git push
+          fi
