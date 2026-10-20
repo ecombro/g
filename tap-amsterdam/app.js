@@ -22,7 +22,7 @@ const QUESTIONS=[
 function e(name,cls,text){let n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
 function geoLink(t){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(t.properties.address||t.properties.name+", Amsterdam");}
 function showStatus(s){$("status").textContent=s;}
-function tabs(name){state.mode=name;state.selected=null;for(let t of document.querySelectorAll("[data-tab]"))t.classList.toggle("active",t.dataset.tab===name);for(let p of document.querySelectorAll("[data-panel]"))p.hidden=p.dataset.panel!==name; if(state.map)setTimeout(()=>state.map.invalidateSize(),80);}
+function tabs(name){state.mode=name;state.selected=null;if($("area"))$("area").value="Alles";if($("search"))$("search").value="";for(let t of document.querySelectorAll("[data-tab]"))t.classList.toggle("active",t.dataset.tab===name);for(let p of document.querySelectorAll("[data-panel]"))p.hidden=p.dataset.panel!==name; if(state.map)setTimeout(()=>state.map.invalidateSize(),80);}
 function makeMap(){
  if(!window.L){$("mapError").hidden=false;return;}
  state.map=L.map("map",{zoomControl:true}).setView([52.367,4.872],11);
@@ -37,7 +37,9 @@ function markers(){
  for(let o of selected){
   const coords=o.geometry.coordinates;
   const isTap=o.properties.category==="TAP-object";
-  const icon=L.divIcon({className:"tap-pin-container",html:'<span class="tap-dot '+(isTap?"blue":"red")+'">'+(isTap?o.properties.name.split(".")[0].replace("TAP ",""):"!")+'</span>',iconSize:[30,30],iconAnchor:[15,15]});
+  const shortName=(o.properties.name||"").replace(/^TAP \d+\.\s*/,"").replace(/[&<>"]/g,"");
+  const badge=isTap?o.properties.name.split(".")[0].replace("TAP ",""):"!";
+  const icon=L.divIcon({className:"tap-pin-container",html:'<span class="tap-dot '+(isTap?"blue":"red")+'">'+badge+'</span>'+(isTap?'<span class="pin-caption">'+shortName+'</span>':""),iconSize:[190,30],iconAnchor:[15,15]});
   const m=L.marker([coords[1],coords[0]],{icon,title:o.properties.name}).addTo(state.markers);
   m.on("click",()=>inspect(o));
  }
