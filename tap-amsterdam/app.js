@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0};
+const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false};
 const OFFICIAL={
  base:"https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html",
  wetering:"https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html",
@@ -93,30 +93,114 @@ function question(){
  $("feedback").textContent=(i===q.correct?"Goed! ":"Niet juist. ")+q.why;$("quizSource").href=OFFICIAL[q.src];$("quizSource").hidden=false;$("nextQuestion").disabled=false;$("progress").textContent=(state.quizIndex+1)+" / "+QUESTIONS.length+" · "+state.score+" goed";};$("answers").append(b)});
  $("quizSource").hidden=true;$("nextQuestion").disabled=true;
 }
-async function tramTracks(){
- if(!state.map)return;
- if(state.tramLayer){state.map.removeLayer(state.tramLayer);state.tramLayer=null;$("trams").textContent="Toon tramsporen (OSM)";return;}
- $("trams").textContent="Tramsporen laden…";$("trams").disabled=true;
- const query='[out:json][timeout:40];way["railway"="tram"](52.28,4.74,52.44,5.04);out geom;';
- try{
-  const resp=await fetch("https://overpass.kumi.systems/api/interpreter?data="+encodeURIComponent(query));
-  if(!resp.ok)throw Error("Overpass niet bereikbaar");
-  const json=await resp.json();
-  const layer=L.layerGroup();let n=0;
-  for(let way of json.elements||[]){if(!way.geometry||way.geometry.length<2)continue;
-   L.polyline(way.geometry.map(v=>[v.lat,v.lon]),{color:"#8b5cf6",weight:3,opacity:.8}).bindPopup("OSM-tramspoor. Dit zegt NIET of de baan voor taxi’s toegankelijk is.").addTo(layer);n++;
-  }
-  state.tramLayer=layer.addTo(state.map);$("trams").textContent="Verberg tramsporen";showStatus(n+" OSM-tramsegmenten geladen — juridische status onbekend");
- }catch(err){$("trams").textContent="Opnieuw tramsporen laden";showStatus("Tramsporen konden niet geladen worden. De andere functies blijven werken.");}
- finally{$("trams").disabled=false;}
+
+function statusForLayer(kind,text){
+  const el=$(kind==="tram"?"tramStatus":"busStatus");
+  if(el)el.textContent=text;
 }
+function updateLayerControls(){
+  const tr=$("trams"),bus=$("buses");
+  tr.textContent="Tramsporen: "+(state.tramVisible?"aan":"uit");
+  bus.textContent="Busbanen: "+(state.busVisible?"aan":"uit");
+  tr.setAttribute("aria-pressed",String(state.tramVisible));
+  bus.setAttribute("aria-pressed",String(state.busVisible));
+}
+function addInfraLayer(geo,kind,source){
+  if(!state.map || !geo?.features || !geo.features.length)throw Error("geen lijngeometrie aanwezig");
+  const isTram=kind==="tram";
+  const layer=L.geoJSON(geo,{
+    style:()=>({color:isTram?"#8b5cf6":"#ed982d",weight:isTram?4:5,opacity:.90}),
+    onEachFeature:(feature,segment)=>{
+      const p=feature.properties||{};
+      const title=isTram?"Tramspoor":"Mogelijke busbaan (OSM)";
+      const note=isTram?"Tramspoor ≠ automatisch toegankelijk voor taxi.":"OSM-busbaanlabel ≠ bewijs dat taxi's hier mogen rijden.";
+      const box=document.createElement("div"),head=document.createElement("strong"),text=document.createElement("p"),meta=document.createElement("small");
+      head.textContent=title+(p.name?" · "+p.name:"");
+      text.textContent=note;
+      meta.textContent="Status: niet juridisch geverifieerd. Bron: "+source+".";
+      box.append(head,text,meta);
+      segment.bindPopup(box);
+    }
+  });
+  const prev=isTram?state.tramLayer:state.busLayer;
+  if(prev && state.map.hasLayer(prev))state.map.removeLayer(prev);
+  if(isTram)state.tramLayer=layer;
+  else state.busLayer=layer;
+  if(isTram?state.tramVisible:state.busVisible)layer.addTo(state.map);
+  statusForLayer(kind,geo.features.length+" OSM-segmenten geladen");
+  updateLayerControls();
+}
+function overpassQuery(kind){
+ const bbox="(52.275,4.72,52.46,5.07)";
+ return kind==="tram"?
+ '[out:json][timeout:45];way["railway"="tram"]'+bbox+';out geom;':
+ '[out:json][timeout:45];(way["highway"="busway"]'+bbox+';way["busway"]'+bbox+';way["lanes:bus"]'+bbox+';way["lanes:psv"]'+bbox+';way["bus:lanes"]'+bbox+';way["psv:lanes"]'+bbox+';);out geom;';
+}
+async function dynamicBackup(kind){
+ const servers=["https://overpass-api.de/api/interpreter","https://overpass.private.coffee/api/interpreter"];
+ let error=null;
+ for(const base of servers){
+  try{
+   const controller=new AbortController(),tid=setTimeout(()=>controller.abort(),15000);
+   let response;
+   try{response=await fetch(base+"?data="+encodeURIComponent(overpassQuery(kind)),{signal:controller.signal});}
+   finally{clearTimeout(tid);}
+   if(!response.ok)throw Error("HTTP "+response.status);
+   const raw=await response.json();
+   const ways=raw.elements||[];
+   const features=ways.filter(o=>o.geometry?.length>1).map(o=>({
+     type:"Feature",
+     properties:{name:o.tags?.name||"",source:"OpenStreetMap Overpass (live)",osm_id:o.id},
+     geometry:{type:"LineString",coordinates:o.geometry.map(p=>[p.lon,p.lat])}
+   }));
+   if(features.length<15)throw Error("Te weinig segmenten: "+features.length);
+   return {type:"FeatureCollection",features};
+  }catch(e){error=e;}
+ }
+ throw error||Error("Gegevensbron niet beschikbaar");
+}
+async function loadInfra(kind){
+ const file=kind==="tram"?"tramsporen.geojson":"busbanen-osm.geojson";
+ statusForLayer(kind,"Bezig met laden…");
+ try{
+   let geo,source="opgeslagen OSM";
+   try{
+     const res=await fetch("./"+file,{cache:"no-store"});
+     if(!res.ok)throw Error("statisch bestand niet gevonden");
+     geo=await res.json();
+     if(!geo.features?.length)throw Error("leeg bestand");
+   }catch(err){
+     statusForLayer(kind,"Live OSM proberen…");
+     geo=await dynamicBackup(kind);
+     source="Overpass live";
+   }
+   addInfraLayer(geo,kind,source);
+ }catch(err){
+   statusForLayer(kind,"Niet geladen — OSM-bron niet bereikbaar");
+   showStatus((kind==="tram"?"Tramsporen":"Busbanen")+" niet beschikbaar. De kaartpunten blijven zichtbaar.");
+ }
+}
+function toggleInfra(kind){
+ const tram=kind==="tram",layer=tram?state.tramLayer:state.busLayer;
+ if(tram)state.tramVisible=!state.tramVisible;else state.busVisible=!state.busVisible;
+ const visible=tram?state.tramVisible:state.busVisible;
+ if(layer && state.map){
+   if(visible)layer.addTo(state.map);else state.map.removeLayer(layer);
+ }else if(visible){
+   loadInfra(kind);
+ }
+ updateLayerControls();
+}
+
 async function init(){
  document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>{tabs(b.dataset.tab);list()}));
  $("search").addEventListener("input",list);$("area").addEventListener("change",list);
  $("routeButton").onclick=plotRoute;$("from").onchange=selectRouteEnds;$("to").onchange=selectRouteEnds;
  $("swap").onclick=()=>{const a=$("from").value;$("from").value=$("to").value;$("to").value=a;selectRouteEnds();};
  $("nextQuestion").onclick=()=>{state.quizIndex=(state.quizIndex+1)%QUESTIONS.length;if(state.quizIndex===0)state.score=0;question()};
- $("trams").onclick=tramTracks;
+ $("trams").onclick=()=>toggleInfra("tram");
+ $("buses").onclick=()=>toggleInfra("bus");
+ updateLayerControls();
  makeMap();
  try{
  const resp=await fetch("./kaart.geojson",{cache:"no-store"});if(!resp.ok)throw Error("HTTP "+resp.status);
@@ -127,7 +211,8 @@ async function init(){
  if(state.tap.length!==40||state.rules.length!==41)throw Error("Onverwachte omvang kaartdata");
  // Oude waarschuwingscoördinaten zijn indicatief en niet juridisch nauwkeurig.
  $("dataCount").textContent=state.tap.length+" TAP-objecten · "+state.rules.length+" waarschuwingen";
- initRoutes();selectRouteEnds();list();question();showStatus("Kaartgegevens geladen. Status van OV-banen alleen via officiële bron vaststellen.");
+ initRoutes();selectRouteEnds();list();question();showStatus("40 objecten en waarschuwingspunten geladen.");
+ if(state.map){loadInfra("tram");loadInfra("bus");}
  }catch(err){$("entries").replaceChildren(e("div","error","Kaartgegevens kunnen niet geladen worden: "+err.message));showStatus("Kaartgegevens ontbreken — controleer GitHub-bestand kaart.geojson");}
 }
 document.addEventListener("DOMContentLoaded",init);
