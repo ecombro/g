@@ -69,7 +69,11 @@
  <section class="mapbox" aria-label="Kaart Amsterdam">
   <div id="map"></div>
   <div id="mapError" hidden>De kaartbibliotheek is niet geladen. De lijst, theorie en officiële bronnen blijven beschikbaar.</div>
-  <div class="toolrow"><button class="btn outline" id="trams" type="button">Toon tramsporen (OSM)</button></div>
+  <div class="toolrow">
+  <button class="btn outline" id="trams" type="button" aria-pressed="true">Tramsporen: aan</button>
+  <button class="btn outline" id="buses" type="button" aria-pressed="true">Busbanen: aan</button>
+  <div class="infra-status"><div><span class="infra-dot purple"></span><span id="tramStatus">Tramsporen laden…</span></div><div><span class="infra-dot orange"></span><span id="busStatus">Busbanen laden…</span></div></div>
+ </div>
   <div class="status" id="status">Kaart laden…</div>
  </section>
 </div>
@@ -79,7 +83,7 @@
  <a class="btn secondary" id="sourceLink" rel="noopener" target="_blank">Officiële verkeersregel ↗</a>
  <button class="btn secondary" id="fromHere">Start hier</button><button class="btn secondary" id="toHere">Bestemming</button></div>
 </div>
-<div class="legend"><span><i class="spot blue"></i>TAP-object (indicatief)</span><span><i class="spot red"></i>Uitsluiting (waarschuwingspunt)</span><span><i class="spot purple"></i>OSM-tramspoor (status onbekend)</span></div>
+<div class="legend"><span><i class="spot blue"></i>TAP-object (indicatief)</span><span><i class="spot red"></i>Uitsluiting (waarschuwingspunt)</span><span><i class="spot purple"></i>OSM-tramspoor (status onbekend)</span><span><i class="spot orange"></i>OSM-busbaanindicatie (status onbekend)</span></div>
 <footer>
 <span id="dataCount">Kaartgegevens laden…</span> · Studieversie 20 oktober 2026 · Gebaseerd op historische TAP-objecten en verkeersbesluiten; status niet overal opnieuw geverifieerd.
 <div><a href="https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html" target="_blank" rel="noopener">Amsterdamse lijnbusbaanvoorschriften (2018)</a>
