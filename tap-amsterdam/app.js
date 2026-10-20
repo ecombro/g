@@ -22,14 +22,14 @@ const QUESTIONS=[
 function e(name,cls,text){let n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
 function geoLink(t){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(t.properties.address||t.properties.name+", Amsterdam");}
 function showStatus(s){$("status").textContent=s;}
-function tabs(name){state.mode=name;for(let t of document.querySelectorAll("[data-tab]"))t.classList.toggle("active",t.dataset.tab===name);for(let p of document.querySelectorAll("[data-panel]"))p.hidden=p.dataset.panel!==name; if(state.map)setTimeout(()=>state.map.invalidateSize(),80);}
+function tabs(name){state.mode=name;state.selected=null;for(let t of document.querySelectorAll("[data-tab]"))t.classList.toggle("active",t.dataset.tab===name);for(let p of document.querySelectorAll("[data-panel]"))p.hidden=p.dataset.panel!==name; if(state.map)setTimeout(()=>state.map.invalidateSize(),80);}
 function makeMap(){
  if(!window.L){$("mapError").hidden=false;return;}
  state.map=L.map("map",{zoomControl:true}).setView([52.367,4.872],11);
  const osm=L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"});
  const carto=L.tileLayer("https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{subdomains:"abcd",maxZoom:19,attribution:"© CARTO © OpenStreetMap"});
  osm.addTo(state.map);let errors=0;osm.on("tileerror",()=>{if(++errors===6){state.map.removeLayer(osm);carto.addTo(state.map);showStatus("Alternatieve straatkaart geladen") }});
- state.markers=L.layerGroup().addTo(state.map);
+ state.markers=L.featureGroup().addTo(state.map);
 }
 function markers(){
  if(!state.map)return;
@@ -41,7 +41,7 @@ function markers(){
   const m=L.marker([coords[1],coords[0]],{icon,title:o.properties.name}).addTo(state.markers);
   m.on("click",()=>inspect(o));
  }
- if(selected.length){let bounds=state.markers.getBounds?.();if(bounds&&bounds.isValid())state.map.fitBounds(bounds.pad(.12),{maxZoom:13});}
+ if(selected.length && !state.selected){const bounds=state.markers.getBounds();if(bounds.isValid())state.map.fitBounds(bounds.pad(.12),{maxZoom:13});}
 }
 function filterLocations(){
  const area=$("area").value,q=$("search").value.toLowerCase().trim();
@@ -51,7 +51,7 @@ function filterLocations(){
  });
 }
 function list(){
- const items=filterLocations();$("resultCount").textContent=items.length+" resultaten";const target=$("entries");target.replaceChildren();
+ const items=filterLocations();$("resultCount").textContent=items.length+" resultaten";const target=state.mode==="waarschuwingen"?$("warningHelp"):$("entries");target.replaceChildren();
  for(let o of items){
   const p=o.properties,wrap=e("button","entry"),title=e("strong","",p.name),subtitle=e("small","",p.address||p.scope||"");
   wrap.append(title,subtitle);wrap.onclick=()=>inspect(o);target.append(wrap);
@@ -119,6 +119,9 @@ async function init(){
  try{
  const resp=await fetch("./kaart.geojson",{cache:"no-store"});if(!resp.ok)throw Error("HTTP "+resp.status);
  const geo=await resp.json();state.all=geo.features||[];state.tap=state.all.filter(o=>o.properties.category==="TAP-object");state.rules=state.all.filter(o=>o.properties.category!=="TAP-object");
+ const zones={Centrum:[1,2,3,5,11,14,26,27,33],Zuid:[4,10,12,15,22,25,28,29,38],Oost:[7,20,23,37],Noord:[21,32,36],West:[6,8,9,13,16,17,18,19,24,30,31,34,35,39,40]};
+ for(const o of state.tap){const id=Number(o.properties.name.match(/TAP (\d+)/)?.[1]);o.properties.area=Object.keys(zones).find(z=>zones[z].includes(id))||"West";}
+ for(const z of Object.keys(zones))$("area").add(new Option(z,z));
  if(state.tap.length!==40||state.rules.length!==41)throw Error("Onverwachte omvang kaartdata");
  // Oude waarschuwingscoördinaten zijn indicatief en niet juridisch nauwkeurig.
  $("dataCount").textContent=state.tap.length+" TAP-objecten · "+state.rules.length+" waarschuwingen";
