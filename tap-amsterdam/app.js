@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false,railReferenceLayer:null};
+const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false,railReferenceLayer:null,tramFallback:false};
 const OFFICIAL={
  base:"https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html",
  wetering:"https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html",
@@ -106,7 +106,7 @@ function statusForLayer(kind,text){
 }
 function updateLayerControls(){
   const tr=$("trams"),bus=$("buses");
-  tr.textContent="Tramsporen: "+(state.tramVisible?"aan":"uit");
+  tr.textContent=(state.tramFallback?"Spoorinfrastructuur":"Tramsporen")+": "+(state.tramVisible?"aan":"uit");
   bus.textContent="Busbanen: "+(state.busVisible?"aan":"uit");
   tr.setAttribute("aria-pressed",String(state.tramVisible));
   bus.setAttribute("aria-pressed",String(state.busVisible));
@@ -131,7 +131,7 @@ function addInfraLayer(geo,kind,source){
   const prev=isTram?state.tramLayer:state.busLayer;
   if(prev && state.map.hasLayer(prev))state.map.removeLayer(prev);
   if(isTram&&state.railReferenceLayer&&state.map.hasLayer(state.railReferenceLayer))state.map.removeLayer(state.railReferenceLayer);
-  if(isTram)state.tramLayer=layer;
+  if(isTram){state.tramFallback=false;state.tramLayer=layer;}
   else state.busLayer=layer;
   if(isTram?state.tramVisible:state.busVisible)layer.addTo(state.map);
   statusForLayer(kind,geo.features.length+" OSM-segmenten geladen");
@@ -183,7 +183,8 @@ async function loadInfra(kind){
    }
    addInfraLayer(geo,kind,source);
  }catch(err){
-   statusForLayer(kind,kind==="tram"?"Spoornet zichtbaar (tram/trein/metro), tramdetail nog niet geladen":"Geen busbaangegevens geladen — bron niet bereikbaar");
+   if(kind==="tram"){state.tramFallback=true;updateLayerControls();}
+   statusForLayer(kind,kind==="tram"?"Spoorinfrastructuur (tram, metro en trein); tramdetail niet geladen":"Geen busbaanlijnen geladen — bron niet bereikbaar");
    showStatus((kind==="tram"?"Tramsporen":"Busbanen")+" niet beschikbaar. De kaartpunten blijven zichtbaar.");
  }
 }
