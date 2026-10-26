@@ -20,7 +20,7 @@ const QUESTIONS=[
 {q:"Stel: je ziet tramrails, maar je weet niet of de rijbaan is aangewezen voor lijnbusbaanmedegebruik. Wat doe je?",answers:["Gewoon nemen, het is een trambaan","De baan niet nemen totdat je de borden en voorschriften hebt gecontroleerd"],correct:1,why:"De veilige regel voor het examen is niet aan te nemen dat tramrails gelijkstaan aan toestemming.",src:"base"}
 ];
 function e(name,cls,text){let n=document.createElement(name);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n;}
-function geoLink(t){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(t.properties.address||t.properties.name+", Amsterdam");}
+function geoLink(t){const p=t.properties;if(p.coordinate_status==="stationspunt_niet_ingang"){const xy=t.geometry.coordinates;return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(xy[1]+","+xy[0]);}return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p.address||p.name+", Amsterdam");}
 function showStatus(s){$("status").textContent=s;}
 function tabs(name){state.mode=name;state.selected=null;if($("area"))$("area").value="Alles";if($("search"))$("search").value="";for(let t of document.querySelectorAll("[data-tab]"))t.classList.toggle("active",t.dataset.tab===name);for(let p of document.querySelectorAll("[data-panel]"))p.hidden=p.dataset.panel!==name; if(state.map)setTimeout(()=>state.map.invalidateSize(),80);}
 function makeMap(){
@@ -49,7 +49,8 @@ function markers(){
   const isTap=o.properties.category==="TAP-object";
   const shortName=(o.properties.name||"").replace(/^TAP \d+\.\s*/,"").replace(/[&<>"]/g,"");
   const badge=isTap?o.properties.name.split(".")[0].replace("TAP ",""):"!";
-  const icon=L.divIcon({className:"tap-pin-container",html:'<span class="tap-dot '+(isTap?"blue":"red")+'">'+badge+'</span>'+(isTap?'<span class="pin-caption">'+shortName+'</span>':""),iconSize:[190,30],iconAnchor:[15,15]});
+  const locationClass=isTap?(o.properties.coordinate_status==="gecontroleerd_adres"?" verified":o.properties.coordinate_status==="stationspunt_niet_ingang"?" station":" unverified"):"";
+  const icon=L.divIcon({className:"tap-pin-container",html:'<span class="tap-dot '+(isTap?"blue":"red")+locationClass+'">'+badge+'</span>'+(isTap?'<span class="pin-caption">'+shortName+'</span>':""),iconSize:[190,30],iconAnchor:[15,15]});
   const m=L.marker([coords[1],coords[0]],{icon,title:o.properties.name}).addTo(state.markers);
   m.on("click",()=>inspect(o));
  }
@@ -66,7 +67,9 @@ function list(){
  const items=filterLocations();$("resultCount").textContent=items.length+" resultaten";const target=state.mode==="waarschuwingen"?$("warningHelp"):$("entries");target.replaceChildren();
  for(let o of items){
   const p=o.properties,wrap=e("button","entry"),title=e("strong","",p.name),subtitle=e("small","",p.address||p.scope||"");
-  wrap.append(title,subtitle);wrap.onclick=()=>inspect(o);target.append(wrap);
+  wrap.append(title,subtitle);
+  if(p.category==="TAP-object"){let status=p.coordinate_status==="gecontroleerd_adres"?"✓ BAG-adres":p.coordinate_status==="stationspunt_niet_ingang"?"◉ Station (ingang onbekend)":"⚠ Niet geverifieerd";wrap.append(e("small","pin-status",status));}
+  wrap.onclick=()=>inspect(o);target.append(wrap);
  }
  if(!items.length)target.append(e("div","quiet","Geen resultaten. Kies een ander gebied of zoekwoord."));
  markers();
@@ -75,7 +78,10 @@ function inspect(o){
  state.selected=o;const p=o.properties,pos=o.geometry.coordinates;
  $("details").hidden=false;$("detailTitle").textContent=p.name;
  $("detailDesc").textContent=p.address||p.scope||"";
- $("detailWarning").textContent=p.category==="TAP-object"?"Indicatieve positie. Exacte entree en rijrichting niet geverifieerd.":"Waarschuwingspunt, geen exact ingetekend verboden wegvak. Controleer de officiële bron en bebording.";
+ $("detailWarning").textContent=p.category!=="TAP-object"?"Waarschuwingspunt, geen exact ingetekend verboden wegvak. Controleer de officiële bron en bebording.":
+ p.coordinate_status==="gecontroleerd_adres"?"✓ BAG-adrespositie gecontroleerd met PDOK. Niet noodzakelijk taxi-ingang of afzetplaats. "+(p.coordinate_match||""):
+ p.coordinate_status==="stationspunt_niet_ingang"?"◉ Stationspunt uit OpenStreetMap, niet de exacte ingang. "+(p.coordinate_match||""):
+ "⚠ Deze positie is nog niet geverifieerd; mogelijk onjuist. Gebruik het gekoppelde adres om te controleren.";
  $("mapsLink").href=geoLink(o);
  $("sourceLink").hidden=p.category==="TAP-object";$("sourceLink").href=(p.source||"").includes("2021")?OFFICIAL.wetering:OFFICIAL.base;
  if(state.map){state.map.flyTo([pos[1],pos[0]],14,{duration:.4});}
@@ -285,7 +291,9 @@ async function init(){
  for(const z of Object.keys(zones))$("area").add(new Option(z,z));
  if(state.tap.length!==40||state.rules.length!==41)throw Error("Onverwachte omvang kaartdata");
  // Oude waarschuwingscoördinaten zijn indicatief en niet juridisch nauwkeurig.
- $("dataCount").textContent=state.tap.length+" TAP-objecten · "+state.rules.length+" waarschuwingen";
+ const bagCount=state.tap.filter(x=>x.properties.coordinate_status==="gecontroleerd_adres").length;
+ const stationCount=state.tap.filter(x=>x.properties.coordinate_status==="stationspunt_niet_ingang").length;
+ $("dataCount").textContent=state.tap.length+" TAP-objecten: "+bagCount+" BAG-adressen, "+stationCount+" stationspunten · "+state.rules.length+" waarschuwingen";
  initRoutes();selectRouteEnds();list();question();showStatus("40 objecten en waarschuwingspunten geladen.");
  if(state.map){loadInfra("tram");loadInfra("bus");}
  }catch(err){$("entries").replaceChildren(e("div","error","Kaartgegevens kunnen niet geladen worden: "+err.message));showStatus("Kaartgegevens ontbreken — controleer GitHub-bestand kaart.geojson");}
