@@ -1,0 +1,686 @@
+{
+  "checked_at": "2026-10-26T21:02:07.713502+00:00",
+  "source": "PDOK Locatieserver / BAG + Nominatim stations",
+  "total": 40,
+  "verified": 38,
+  "unresolved": 2,
+  "objects": [
+    {
+      "id": 1,
+      "name": "TAP 1. Stadhuis",
+      "address": "Amstel 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9009,
+        52.3661
+      ],
+      "new": [
+        4.9001655,
+        52.3676456
+      ],
+      "shift_m": 178,
+      "matched": "Amstel 1, 1011PN Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 2,
+      "name": "TAP 2. De Nederlandsche Bank",
+      "address": "Frederiksplein 61, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9008,
+        52.3585
+      ],
+      "new": [
+        4.9001227,
+        52.3593643
+      ],
+      "shift_m": 106,
+      "matched": "Frederiksplein 61, 1017XL Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 3,
+      "name": "TAP 3. Paleis van Justitie",
+      "address": "IJdok 20, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8955,
+        52.3803
+      ],
+      "new": [
+        4.8950321,
+        52.3837128
+      ],
+      "shift_m": 379,
+      "matched": "IJdok 20, 1013MM Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 4,
+      "name": "TAP 4. VU Ziekenhuis",
+      "address": "De Boelelaan 1117, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8605,
+        52.3351
+      ],
+      "new": [
+        4.8598299,
+        52.334616
+      ],
+      "shift_m": 70,
+      "matched": "De Boelelaan 1117, 1081HV Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 5,
+      "name": "TAP 5. De Makroon",
+      "address": "Nieuwe Passeerdersstraat 6, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8827,
+        52.3656
+      ],
+      "new": [
+        4.8785361,
+        52.3666729
+      ],
+      "shift_m": 307,
+      "matched": "Nieuwe Passeerdersstraat 6, 1016XP Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 6,
+      "name": "TAP 6. Reade revalidatiecentrum",
+      "address": "Dr. Jan van Breemenstraat 2, Amsterdam",
+      "status": "onbevestigd",
+      "old": [
+        4.8411,
+        52.3702
+      ],
+      "new": [
+        4.8411,
+        52.3702
+      ],
+      "reason": "PDOK vond geen exact matchend adres voor Dr. Jan van Breemenstraat 2"
+    },
+    {
+      "id": 7,
+      "name": "TAP 7. Amstel station",
+      "address": "Julianaplein 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9176,
+        52.3469
+      ],
+      "new": [
+        4.9186684,
+        52.3467184
+      ],
+      "shift_m": 75,
+      "matched": "Julianaplein 1, 1097DN Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 8,
+      "name": "TAP 8. Station Postjesweg",
+      "address": "Postjesweg, Amsterdam",
+      "status": "stationspunt_niet_ingang",
+      "old": [
+        4.834,
+        52.3636
+      ],
+      "new": [
+        4.8339612,
+        52.3642921
+      ],
+      "shift_m": 77,
+      "matched": "Postjesweg, Robert Fruinlaan, Slotervaart, Nieuw-West, Amsterdam, Noord-Holland, Nederland, 1065 XR, Nederland",
+      "confidence": "middel"
+    },
+    {
+      "id": 9,
+      "name": "TAP 9. Station Vlugtlaan",
+      "address": "Burgemeester De Vlugtlaan, Amsterdam",
+      "status": "onbevestigd",
+      "old": [
+        4.837,
+        52.3784
+      ],
+      "new": [
+        4.837,
+        52.3784
+      ],
+      "reason": "Stationpositie niet bevestigd door OpenStreetMap"
+    },
+    {
+      "id": 10,
+      "name": "TAP 10. Van Gogh Museum",
+      "address": "Paulus Potterstraat 7, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.881,
+        52.3582
+      ],
+      "new": [
+        4.8813227,
+        52.3579248
+      ],
+      "shift_m": 38,
+      "matched": "Paulus Potterstraat 7, 1071CX Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 11,
+      "name": "TAP 11. Anne Frankhuis",
+      "address": "Prinsengracht 267, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.884,
+        52.3752
+      ],
+      "new": [
+        4.8843172,
+        52.3749364
+      ],
+      "shift_m": 36,
+      "matched": "Prinsengracht 267, 1016GV Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 12,
+      "name": "TAP 12. World Trade Centre (WTC)",
+      "address": "Strawinskylaan 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8746,
+        52.337
+      ],
+      "new": [
+        4.8748717,
+        52.3405614
+      ],
+      "shift_m": 394,
+      "matched": "Strawinskylaan 1, 1077XW Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 13,
+      "name": "TAP 13. World Fashion Centre",
+      "address": "Koningin Wilhelminaplein 13, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8396,
+        52.3554
+      ],
+      "new": [
+        4.8411274,
+        52.3545559
+      ],
+      "shift_m": 140,
+      "matched": "Koningin Wilhelminaplein 13, 1062HH Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 14,
+      "name": "TAP 14. ARTIS",
+      "address": "Plantage Kerklaan 38-40, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.912,
+        52.366
+      ],
+      "new": [
+        4.9125816,
+        52.3669615
+      ],
+      "shift_m": 113,
+      "matched": "Plantage Kerklaan 38, 1018CZ Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 15,
+      "name": "TAP 15. Olympisch Stadion Amsterdam",
+      "address": "Olympisch Stadion 2, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8578,
+        52.3435
+      ],
+      "new": [
+        4.8551128,
+        52.3438073
+      ],
+      "shift_m": 186,
+      "matched": "Olympisch Stadion 2, 1076DE Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 16,
+      "name": "TAP 16. Museum Het Schip",
+      "address": "Oostzaanstraat 45, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8752,
+        52.393
+      ],
+      "new": [
+        4.8739018,
+        52.3903119
+      ],
+      "shift_m": 310,
+      "matched": "Oostzaanstraat 45, 1013WG Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 17,
+      "name": "TAP 17. Molen van Sloten",
+      "address": "Akersluis 10, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.7976,
+        52.341
+      ],
+      "new": [
+        4.7922019,
+        52.3415664
+      ],
+      "shift_m": 372,
+      "matched": "Akersluis 10, 1066EZ Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 18,
+      "name": "TAP 18. Tuincentrum Osdorp",
+      "address": "Osdorperweg 247, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.7755,
+        52.3652
+      ],
+      "new": [
+        4.7908341,
+        52.3516259
+      ],
+      "shift_m": 1827,
+      "matched": "Osdorperweg 247, 1069LL Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 19,
+      "name": "TAP 19. Taxistandplaats",
+      "address": "Louwesweg 401, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8275,
+        52.3509
+      ],
+      "new": [
+        4.8227101,
+        52.3461468
+      ],
+      "shift_m": 618,
+      "matched": "Louwesweg 401, 1066EA Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 20,
+      "name": "TAP 20. Esso Amsterdam",
+      "address": "Sarphatistraat 225, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9228,
+        52.364
+      ],
+      "new": [
+        4.9241526,
+        52.3668455
+      ],
+      "shift_m": 328,
+      "matched": "Sarphatistraat 225, 1018AE Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 21,
+      "name": "TAP 21. Karwei Bouwmarkt Amsterdam-Noord",
+      "address": "Klaprozenweg 31-33, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8952,
+        52.401
+      ],
+      "new": [
+        4.9085952,
+        52.3975844
+      ],
+      "shift_m": 985,
+      "matched": "Klaprozenweg 31, 1032KK Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 22,
+      "name": "TAP 22. Rietveld Academie",
+      "address": "Fred. Roeskestraat 96, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8725,
+        52.3425
+      ],
+      "new": [
+        4.8596991,
+        52.3419225
+      ],
+      "shift_m": 873,
+      "matched": "Fred. Roeskestraat 96, 1076ED Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 23,
+      "name": "TAP 23. Kunstijsbaan Jaap Eden",
+      "address": "Radioweg 64, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9435,
+        52.35
+      ],
+      "new": [
+        4.9445082,
+        52.349343
+      ],
+      "shift_m": 100,
+      "matched": "Radioweg 64, 1098NJ Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 24,
+      "name": "TAP 24. Zwembad Sloterparkbad",
+      "address": "President Allendelaan 3, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8076,
+        52.3673
+      ],
+      "new": [
+        4.8171202,
+        52.3700186
+      ],
+      "shift_m": 713,
+      "matched": "President Allendelaan 3, 1064GW Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 25,
+      "name": "TAP 25. Hotel Atlantis",
+      "address": "Ceintuurbaan 215-217, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.896,
+        52.354
+      ],
+      "new": [
+        4.9023406,
+        52.3553531
+      ],
+      "shift_m": 456,
+      "matched": "Ceintuurbaan 215, 1074CV Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 26,
+      "name": "TAP 26. Renaissance Amsterdam Hotel",
+      "address": "Kattengat 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8965,
+        52.377
+      ],
+      "new": [
+        4.8944111,
+        52.377747
+      ],
+      "shift_m": 164,
+      "matched": "Kattengat 1, 1012SZ Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 27,
+      "name": "TAP 27. Hotel Amstel",
+      "address": "Professor Tulpplein 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9051,
+        52.3551
+      ],
+      "new": [
+        4.9052427,
+        52.3599843
+      ],
+      "shift_m": 540,
+      "matched": "Prof. Tulpplein 1, 1018GX Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 28,
+      "name": "TAP 28. Hotel Hilton",
+      "address": "Apollolaan 138, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8667,
+        52.3511
+      ],
+      "new": [
+        4.8720121,
+        52.3514297
+      ],
+      "shift_m": 363,
+      "matched": "Apollolaan 138, 1077BG Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 29,
+      "name": "TAP 29. Hotel Okura",
+      "address": "Ferdinand Bolstraat 333, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8957,
+        52.3474
+      ],
+      "new": [
+        4.8936253,
+        52.3485849
+      ],
+      "shift_m": 193,
+      "matched": "Ferdinand Bolstraat 333, 1072LH Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 30,
+      "name": "TAP 30. Hotel Blue Square",
+      "address": "Slotermeerlaan 80, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8228,
+        52.3816
+      ],
+      "new": [
+        4.8206519,
+        52.3786188
+      ],
+      "shift_m": 361,
+      "matched": "Slotermeerlaan 80, 1064HD Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 31,
+      "name": "TAP 31. Mercure Hotel Amsterdam West",
+      "address": "Oude Haagseweg 20, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8151,
+        52.3417
+      ],
+      "new": [
+        4.817336,
+        52.3372142
+      ],
+      "shift_m": 519,
+      "matched": "Oude Haagseweg 20, 1066BW Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 32,
+      "name": "TAP 32. Hotel NH Amsterdam Noord",
+      "address": "Distelkade 21, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9101,
+        52.399
+      ],
+      "new": [
+        4.9109013,
+        52.3921832
+      ],
+      "shift_m": 756,
+      "matched": "Distelkade 21, 1031XP Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 33,
+      "name": "TAP 33. Paradiso",
+      "address": "Weteringschans 6-8, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.883,
+        52.3622
+      ],
+      "new": [
+        4.883945,
+        52.3622775
+      ],
+      "shift_m": 65,
+      "matched": "Weteringschans 6, 1017SG Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 34,
+      "name": "TAP 34. De Hallen",
+      "address": "Bellamystraat 1, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8688,
+        52.368
+      ],
+      "new": [
+        4.8671355,
+        52.3672649
+      ],
+      "shift_m": 139,
+      "matched": "Bellamystraat 1A-1, 1053BE Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 35,
+      "name": "TAP 35. Theater Meervaart",
+      "address": "Meer en Vaart 300, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8024,
+        52.359
+      ],
+      "new": [
+        4.8073521,
+        52.359051
+      ],
+      "shift_m": 337,
+      "matched": "Meer en Vaart 300, 1068LE Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 36,
+      "name": "TAP 36. Stadsdeelkantoor Noord",
+      "address": "Buikslotermeerplein 2000, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.935,
+        52.399
+      ],
+      "new": [
+        4.9329224,
+        52.4008349
+      ],
+      "shift_m": 247,
+      "matched": "Buikslotermeerplein 2000, 1025XL Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 37,
+      "name": "TAP 37. Stadsdeelkantoor Oost",
+      "address": "Oranje-Vrijstaatplein 2, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.934,
+        52.357
+      ],
+      "new": [
+        4.9308964,
+        52.3567474
+      ],
+      "shift_m": 213,
+      "matched": "Oranje-Vrijstaatplein 2, 1093NG Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 38,
+      "name": "TAP 38. Stadsdeelkantoor Zuid",
+      "address": "President Kennedylaan 923, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.9074,
+        52.3453
+      ],
+      "new": [
+        4.8939533,
+        52.3404776
+      ],
+      "shift_m": 1059,
+      "matched": "President Kennedylaan 923, 1079MZ Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 39,
+      "name": "TAP 39. Stadsdeelkantoor West",
+      "address": "Bos en Lommerplein 250, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8469,
+        52.3786
+      ],
+      "new": [
+        4.8451418,
+        52.3780055
+      ],
+      "shift_m": 136,
+      "matched": "Bos en Lommerplein 250, 1055EK Amsterdam",
+      "confidence": "hoog"
+    },
+    {
+      "id": 40,
+      "name": "TAP 40. Stadsdeelkantoor Nieuw-West",
+      "address": "Osdorpplein 1000, Amsterdam",
+      "status": "gecontroleerd_adres",
+      "old": [
+        4.8087,
+        52.3591
+      ],
+      "new": [
+        4.8069017,
+        52.3580768
+      ],
+      "shift_m": 167,
+      "matched": "Osdorpplein 1000, 1068TG Amsterdam",
+      "confidence": "hoog"
+    }
+  ],
+  "important": "Adrespunt verschilt van officiële taxi-ingang. Onbevestigde punten blijven benaderingen."
+}
