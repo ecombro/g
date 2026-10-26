@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Amsterdam TAP oefenkaart met 40 objecten, uitsluitingen, routeoefening en verkeerstheorie.">
+<title>TAP Amsterdam — hoofdaders, trambanen en busbanen</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="./styles.css?v=20261026-hoofdaders-v1">
+</head>
+<body>
+<header>
+  <div><h1>↗ TAP Amsterdam</h1><div class="sub">Oefenkaart voor Amsterdamse taxibanen en het TAP-praktijkexamen</div></div>
+  <span class="tag">STUDIEVERSIE</span>
+</header>
+<main class="container">
+<div class="notice"><strong>Belangrijk:</strong> deze kaart is een oefenhulpmiddel. Er is geen betrouwbare actuele database van alle toegestane taxibanen in deze tool. <strong>Rood</strong> = locatie met bekende uitsluitingsregels (niet de exacte weggrens); <strong>paars</strong> = tramrails uit OSM, géén toestemming. De bebording en de geldige ontheffing blijven leidend.</div>
+<div class="layout">
+ <aside class="panel">
+  <nav class="tabs" aria-label="Functies">
+   <button type="button" data-tab="objecten" class="active">📍 Objecten</button>
+   <button type="button" data-tab="waarschuwingen">⛔ Regels</button>
+   <button type="button" data-tab="routes">🧭 Routes</button>
+   <button type="button" data-tab="quiz">🎓 Oefenen</button>
+  </nav>
+  <section class="panel-content" data-panel="objecten">
+   <h2>Vind een TAP-object</h2>
+   <label for="search">Naam, nummer of straat</label><input id="search" placeholder="Bijv. Paradiso, 14, Amstel">
+   <label for="area">Gebied</label><select id="area"><option value="Alles">Heel Amsterdam</option></select>
+   <div class="count" id="resultCount">40 objecten</div>
+   <div id="entries"></div>
+  </section>
+  <section class="panel-content" data-panel="waarschuwingen" hidden>
+   <h2>Wegvakken met uitsluitingen</h2>
+   <p class="muted">Uit eerdere Amsterdamse verkeersbesluiten. Niet ieder punt is een afzonderlijke verboden tram-/busbaan. Lees het wegvak en de richting zorgvuldig.</p>
+   <div class="alert">Geen doorgang voor taxi's op een OV-baan alleen omdat er rails liggen. De Amsterdamse taxiontheffing geldt niet op genoemde uitgesloten trajecten; uitzonderingen zoals AOV worden apart behandeld.</div>
+   <p class="muted"><strong>Belangrijkste voorbeelden:</strong> Damrak, Rokin, Utrechtsestraat, Czaar Peterstraat, uitgesloten gedeelten van Leidseplein en Weteringschans. Bekijk altijd de begrenzing in de officiële tekst.</p>
+   <div class="row"><a href="https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html" target="_blank" rel="noopener">Gemeenteblad 2018 ↗</a><a href="https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html" target="_blank" rel="noopener">Weteringschans 2021 ↗</a></div>
+   <div class="alert"><strong>Weteringschans:</strong> de oude 21:00–07:00-regel in de lijst uit 2018 is achterhaald door het besluit van 2021. Voor het genoemde traject is de Amsterdamse taxi-ontheffing niet van toepassing, uitgezonderd AOV.</div>
+   <p class="muted">Kies hier een locatie om de waarschuwing op de kaart te bekijken. <strong>De rode punten zijn niet geschikt voor automatische legale routeberekening.</strong></p>
+   <div id="warningHelp"></div>
+  </section>
+  <section class="panel-content" data-panel="routes" hidden>
+   <h2>Oefen een route</h2>
+   <div class="muted">Kies twee objecten. De routeplanner toont een gewone autoroute; hij garandeert niet dat die route voor een taxi toegestaan is.</div>
+   <label for="from">Vertrek</label><select id="from"></select>
+   <label for="to">Bestemming</label><select id="to"></select>
+   <div class="row"><button class="btn secondary" id="swap">⇄ Wissel</button><button class="btn" id="routeButton">Teken autoroute</button></div>
+   <div class="box"><strong>Route-uitkomst</strong><p id="routeResult">Selecteer een vertrek- en eindpunt.</p></div>
+   <a class="btn outline" style="display:block" id="externalRoute" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+   <div class="alert"><strong>Let op:</strong> gewone routeplanners kennen de speciale Amsterdamse lijnbusbaanontheffing meestal niet. Een route die op de kaart staat, is daarom niet automatisch een toegestane taxiroute. Controleer de weggedeelten, verkeersborden en rijrichting.</div>
+  </section>
+  <section class="panel-content" data-panel="quiz" hidden>
+   <h2>Examentraining</h2>
+   <span class="pill" id="progress"></span>
+   <h3 id="question">Vraag laden…</h3>
+   <div id="answers"></div>
+   <p class="feedback" id="feedback"></p>
+   <a href="#" target="_blank" rel="noopener" id="quizSource" hidden>Lees de officiële bron ↗</a>
+   <div style="margin-top:15px"><button class="btn" id="nextQuestion" disabled>Volgende vraag →</button></div>
+   <div class="box"><strong>Ezelsbruggetjes voor de praktijk</strong>
+    <p>• Bekijk of de baan vrijliggend en verhard is, en wat borden en wegmarkeringen aangeven.</p>
+    <p>• OV-verkeerslicht (negenoog), 20 km/u langs haltes, niet inhalen, niet stoppen op de OV-baan.</p>
+    <p>• Niet tussentijds op-/afrijden, rijrichting van bus of tram volgen.</p>
+    <p>• Controleer de uitzonderingslijst en recente verkeersbesluiten vóór je een baan als toegestaan behandelt.</p>
+   </div>
+  </section>
+ </aside>
+ <section class="mapbox" aria-label="Kaart Amsterdam">
+  <div id="map"></div>
+  <div id="mapError" hidden>De kaartbibliotheek is niet geladen. De lijst, theorie en officiële bronnen blijven beschikbaar.</div>
+  <div class="toolrow">
+  <button class="btn outline" id="trams" type="button" aria-pressed="true">Tramsporen: aan</button>
+  <button class="btn outline" id="buses" type="button" aria-pressed="true">Busbanen: aan</button>
+  <button class="btn outline" id="arteries" type="button" aria-pressed="true">Hoofdaders: aan</button>
+  <button class="btn outline" id="arteryFont" type="button">Straatnamen A+</button>
+  <div id="arteryCount" class="corridor-count">Hoofdstraatnamen laden…</div>
+  <div class="infra-status"><div><span class="infra-dot purple"></span><span id="tramStatus">Tramsporen laden…</span></div><div><span class="infra-dot orange"></span><span id="busStatus">Busbanen laden…</span></div></div>
+ </div>
+  <div class="status" id="status">Kaart laden…</div><div class="artery-live" id="arteryLive" aria-live="polite"></div>
+ </section>
+</div>
+<div class="details" id="details" hidden>
+ <strong id="detailTitle"></strong><p id="detailDesc"></p><div class="alert" id="detailWarning"></div>
+ <div class="row"><a class="btn outline" id="mapsLink" rel="noopener" target="_blank">Bekijk in Google Maps ↗</a>
+ <a class="btn secondary" id="sourceLink" rel="noopener" target="_blank">Officiële verkeersregel ↗</a>
+ <button class="btn secondary" id="fromHere">Start hier</button><button class="btn secondary" id="toHere">Bestemming</button></div>
+</div>
+<div class="legend"><span><i class="spot blue"></i>TAP-object (indicatief)</span><span><i class="spot red"></i>Uitsluiting (waarschuwingspunt)</span><span><i class="spot purple"></i>OSM-tramspoor (status onbekend)</span><span><i class="spot orange"></i>OSM-busbaanindicatie (status onbekend)</span><span>Grote paarse/oranje straatnamen: oriëntatie op hoofdaders, niet juridisch gevalideerd</span></div>
+<footer>
+<span id="dataCount">Kaartgegevens laden…</span> · Studieversie 20 oktober 2026 · Gebaseerd op historische TAP-objecten en verkeersbesluiten; status niet overal opnieuw geverifieerd.
+<div><a href="https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html" target="_blank" rel="noopener">Amsterdamse lijnbusbaanvoorschriften (2018)</a>
+<a href="https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html" target="_blank" rel="noopener">Weteringschans-besluit (2021)</a>
+<a href="https://zoek.officielebekendmakingen.nl/stcrt-2024-15122.html" target="_blank" rel="noopener">Wijziging landelijk taxi-examen (2024)</a></div>
+</footer>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./app.js?v=20261026-hoofdaders-v1"></script>
+</body></html>
