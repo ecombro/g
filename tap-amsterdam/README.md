@@ -1,6 +1,6 @@
 # TAP Amsterdam — Oefenkaart (studiemiddel)
 
-**Open de actuele kaart (BAG-gecontroleerde punten):** https://raw.githack.com/ecombro/g/main/tap-amsterdam/tap-gecorrigeerd.html
+**Open de actuele kaart (BAG-gecontroleerde punten):** https://raw.githack.com/ecombro/g/main/tap-amsterdam/tap-objecten-v4.html
 
 Deze pagina is een studietool voor het **CBR Taxi Amsterdam Praktijk (TAP)** examen en Amsterdamse lijnbusbaanregels. Het is **geen juridische routeplanner** en niet geschikt als bewijs dat een rijbaan toegankelijk is voor taxi's.
 
@@ -43,3 +43,11 @@ Deze pagina is een studietool voor het **CBR Taxi Amsterdam Praktijk (TAP)** exa
 - De oorspronkelijke 40 oefenobjectenlijst blijft historisch; deze revisie verifieert de **coördinaten**, niet dat elk object in 2026 nog als TAP-examenobject geldt.
 
 De algemene landelijke CBR-objectenlijst is per 1 juli 2024 vervallen. Het **Amsterdamse TAP-examen** is een andere kwalificatie; de oefenobjecten in deze repository worden niet gepresenteerd als een door het CBR nieuw bevestigde verplichte lijst (2026).
+
+
+## Kaartgegevens versie 4 (26 oktober 2026)
+- Nieuwe, onveranderlijke pinbron: [kaart-punten-gecheckt-v4.geojson](./kaart-punten-gecheckt-v4.geojson). Deze nieuwe bestandsnaam voorkomt dat oude CDN-cachegegevens worden geladen.
+- Klik op een TAP-object: het bezoekadres, eventuele oorspronkelijke lijstadres en een link **Bekijk exact kaartpunt** worden getoond. Zo kun je de feitelijke GPS-marker onafhankelijk vergelijken.
+- Actuele bezoekersadressen (historisch adres blijft opgeslagen): Van Gogh Museum → Museumplein 6; Anne Frank Huis → Westermarkt 20; De Hallen → Hannie Dankbaarpassage 47; Reade → Admiraal Helfrichstraat 1. Gebaseerd op websites van deze instellingen.
+- **Let op:** BAG toont een adrespunt (gebouw), niet automatisch de voetgangersingang, taxistandplaats of beste aanrijplek. Stationspunten zijn OSM-locaties zonder exacte ingang.
+- De historische objectenlijst is niet als actuele officiële CBR-TAP-objectenlijst bevestigd; de kaart blijft een oefenhulpmiddel.
