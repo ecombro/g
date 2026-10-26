@@ -1,6 +1,6 @@
 # TAP Amsterdam — Oefenkaart (studiemiddel)
 
-**Open de app (grote straatnamen):** https://raw.githack.com/ecombro/g/main/tap-amsterdam/hoofdaders.html
+**Open de actuele kaart (BAG-gecontroleerde punten):** https://raw.githack.com/ecombro/g/main/tap-amsterdam/tap-gecorrigeerd.html
 
 Deze pagina is een studietool voor het **CBR Taxi Amsterdam Praktijk (TAP)** examen en Amsterdamse lijnbusbaanregels. Het is **geen juridische routeplanner** en niet geschikt als bewijs dat een rijbaan toegankelijk is voor taxi's.
 
@@ -33,5 +33,13 @@ Deze pagina is een studietool voor het **CBR Taxi Amsterdam Praktijk (TAP)** exa
 3. Toegestane banen nog **niet** in groen tekenen; eerst per wegvak actuele bebording, rijrichting en ontheffing controleren.
 4. Routes niet als juridisch toegestane taxiroutes presenteren tot een geverifieerde toegangsdataset en route-engine bestaan.
 5. Wijzigingen in verkeersbesluiten na de gebruikte bronnen periodiek onderzoeken.
+
+## Locatiecontrole — 26 oktober 2026
+- 38 van de 40 TAP-objecten gegeocodeerd op exact bijbehorend BAG-huisnummer via [PDOK Locatieserver](https://api.pdok.nl/bzk/locatieserver/search/v3_1/ui/).
+- Station Postjesweg en Metrostation De Vlugtlaan zijn gegeocodeerd als OSM-stationspunt, **niet** als exacte reizigers- of taxi-ingang.
+- Reade: het verouderde adres Dr. Jan van Breemenstraat 2 is vervangen door het actuele bezoekadres Admiraal Helfrichstraat 1, zoals [Reade zelf aangeeft](https://reade.nl/over-ons/locaties/jan-van-breemen).
+- Per-object oude en nieuwe coördinaten en verplaatsingen zijn te vinden in [tap-coordinates-audit.json](./tap-coordinates-audit.json).
+- BAG-adrespunten beschrijven een officieel adres, niet per se de taxistandplaats, juiste aanrijrichting of gebouwtoegang.
+- De oorspronkelijke 40 oefenobjectenlijst blijft historisch; deze revisie verifieert de **coördinaten**, niet dat elk object in 2026 nog als TAP-examenobject geldt.
 
 De algemene landelijke CBR-objectenlijst is per 1 juli 2024 vervallen. Het **Amsterdamse TAP-examen** is een andere kwalificatie; de oefenobjecten in deze repository worden niet gepresenteerd als een door het CBR nieuw bevestigde verplichte lijst (2026).
