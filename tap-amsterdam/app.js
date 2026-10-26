@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false,railReferenceLayer:null,tramFallback:false};
+const state={all:[],tap:[],rules:[],map:null,markers:null,tramLayer:null,busLayer:null,routeLayer:null,selected:null,area:"Alles",mode:"objecten",quizIndex:0,score:0,tramVisible:true,busVisible:true,tramLoading:false,busLoading:false,railReferenceLayer:null,tramFallback:false,arteries:[],arteryLayer:null,arteryVisible:true,arterySize:1.18};
 const OFFICIAL={
  base:"https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html",
  wetering:"https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html",
@@ -35,7 +35,11 @@ function makeMap(){
  state.railReferenceLayer=L.tileLayer("https://tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png",{
    maxZoom:19,opacity:.75,attribution:"OpenRailwayMap © OpenStreetMap contributors"
  }).addTo(state.map);
- state.markers=L.featureGroup().addTo(state.map);
+ const namesPane=state.map.createPane("arteryNames");
+ namesPane.style.zIndex="590";namesPane.style.pointerEvents="none";
+ state.arteryLayer=L.layerGroup().addTo(state.map);
+ state.map.on("zoomend moveend",updateArteryLabels);
+  state.markers=L.featureGroup().addTo(state.map);
 }
 function markers(){
  if(!state.map)return;
@@ -100,6 +104,64 @@ function question(){
  $("quizSource").hidden=true;$("nextQuestion").disabled=true;
 }
 
+
+/* Large corridor names are an independent orientation overlay. They do not certify taxi access. */
+async function loadArteryNames(){
+ try{
+  const res=await fetch("./hoofdaders.json",{cache:"no-store"});
+  if(!res.ok)throw Error("HTTP "+res.status);
+  const obj=await res.json();
+  if(!Array.isArray(obj.labels)||obj.labels.length<15)throw Error("geen labels in kaartbestand");
+  state.arteries=obj.labels;updateArteryLabels();
+  if($("arteryCount"))$("arteryCount").textContent=obj.labels.length+" hoofdstraten met grote labels";
+ }catch(error){
+  if($("arteryCount"))$("arteryCount").textContent="Hoofdstraten niet geladen: "+error.message;
+ }
+}
+function updateArteryLabels(){
+ if(!state.map||!state.arteryLayer)return;
+ state.arteryLayer.clearLayers();
+ if(!state.arteryVisible||!state.arteries.length)return;
+ const zoom=state.map.getZoom();
+ const level=zoom<11.3?2:zoom<12.2?3:4;
+ const mapSize=state.map.getSize();
+ const accepted=[];
+ const names=[...state.arteries].sort((a,b)=>a.rank-b.rank||((a.type==="tram")?-1:1));
+ const size=Math.round((zoom<12?15:zoom<14?17:18)*state.arterySize);
+ let shown=0;
+ for(const road of names){
+  if(road.rank>level)continue;
+  if(road.type==="tram"&&!state.tramVisible||road.type==="bus"&&!state.busVisible)continue;
+  const coord=L.latLng(road.lat,road.lon);
+  if(!state.map.getBounds().pad(.02).contains(coord))continue;
+  const pt=state.map.latLngToContainerPoint(coord);
+  const width=Math.min(275, Math.max(94,road.name.length*size*.62+45));
+  const rect={x:pt.x-width/2,y:pt.y-17,width,height:38};
+  if(pt.x<width/2+6||pt.x>mapSize.x-width/2-6||pt.y<18||pt.y>mapSize.y-15)continue;
+  if(accepted.some(r=>rect.x<r.x+r.width+5&&rect.x+rect.width+5>r.x&&rect.y<r.y+r.height+5&&rect.y+rect.height+5>r.y))continue;
+  accepted.push(rect);
+  const el=document.createElement("div");el.className="artery-label "+(road.type==="tram"?"artery-tram":"artery-bus");
+  const cat=document.createElement("span");cat.className="artery-type";cat.textContent=road.type==="tram"?"TRAM":"BUS";
+  const txt=document.createElement("strong");txt.textContent=road.name;txt.style.fontSize=size+"px";el.append(cat,txt);
+  // escaping is automatic for user-facing name content
+  const icon=L.divIcon({className:"artery-label-holder",html:el.outerHTML,iconSize:[0,0],iconAnchor:[0,0]});
+  L.marker(coord,{pane:"arteryNames",icon,interactive:false,keyboard:false}).addTo(state.arteryLayer);
+  shown++;
+ }
+ if($("arteryLive"))$("arteryLive").textContent=shown+" hoofdstraatnamen in beeld";
+}
+function updateArteryButtons(){
+ const toggle=$("arteries"),enlarge=$("arteryFont");
+ if(toggle){toggle.textContent="Hoofdaders: "+(state.arteryVisible?"aan":"uit");toggle.setAttribute("aria-pressed",String(state.arteryVisible));}
+ if(enlarge)enlarge.textContent=state.arterySize<1.3?"Straatnamen A+":"Straatnamen normaal";
+}
+function toggleArteries(){
+ state.arteryVisible=!state.arteryVisible;updateArteryButtons();updateArteryLabels();
+}
+function enlargeArteries(){
+ state.arterySize=state.arterySize<1.3?1.45:1.18;
+ updateArteryButtons();updateArteryLabels();
+}
 function statusForLayer(kind,text){
   const el=$(kind==="tram"?"tramStatus":"busStatus");
   if(el)el.textContent=text;
@@ -198,7 +260,7 @@ function toggleInfra(kind){
  }else if(visible){
    loadInfra(kind);
  }
- updateLayerControls();
+ updateLayerControls();updateArteryLabels();
 }
 
 async function init(){
@@ -209,8 +271,12 @@ async function init(){
  $("nextQuestion").onclick=()=>{state.quizIndex=(state.quizIndex+1)%QUESTIONS.length;if(state.quizIndex===0)state.score=0;question()};
  $("trams").onclick=()=>toggleInfra("tram");
  $("buses").onclick=()=>toggleInfra("bus");
+ $("arteries").onclick=toggleArteries;
+ $("arteryFont").onclick=enlargeArteries;
+ updateArteryButtons();
  updateLayerControls();
  makeMap();
+ loadArteryNames();
  try{
  const resp=await fetch("./kaart.geojson",{cache:"no-store"});if(!resp.ok)throw Error("HTTP "+resp.status);
  const geo=await resp.json();state.all=geo.features||[];state.tap=state.all.filter(o=>o.properties.category==="TAP-object");state.rules=state.all.filter(o=>o.properties.category!=="TAP-object");
