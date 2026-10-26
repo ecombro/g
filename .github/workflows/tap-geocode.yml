@@ -1,0 +1,32 @@
+name: Validate 40 TAP objects against Dutch BAG
+on:
+  push:
+    paths:
+      - scripts/geocode-tap-objects.py
+      - .github/workflows/tap-geocode.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  geocode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout map data
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Geocode and audit 40 addresses via PDOK BAG and OSM stations
+        run: python scripts/geocode-tap-objects.py
+      - name: Commit verified points and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tap-amsterdam/kaart.geojson tap-amsterdam/tap-coordinates-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Replace historical approximate TAP pins with BAG-verified coordinates"
+            git pull --rebase origin main
+            git push
+          fi
