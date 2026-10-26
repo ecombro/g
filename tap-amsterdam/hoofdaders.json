@@ -1,0 +1,439 @@
+{
+  "version": "2026-10-26",
+  "source": "OSM tramlijnen en wegen met busbaan gerelateerde kenmerken; namen dienen uitsluitend voor oriëntatie",
+  "note": "Tram-/busbaan-infrastructuur is geen automatische taxitoestemming. Namen kunnen ook delen van een weg betreffen.",
+  "labels": [
+    {
+      "name": "Damrak",
+      "type": "tram",
+      "lon": 4.896431,
+      "lat": 52.375682,
+      "rank": 2,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Rokin",
+      "type": "tram",
+      "lon": 4.892331,
+      "lat": 52.369965,
+      "rank": 2,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Vijzelstraat",
+      "type": "tram",
+      "lon": 4.891816,
+      "lat": 52.362251,
+      "rank": 1,
+      "nearTrackMeters": 150,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Leidsestraat",
+      "type": "tram",
+      "lon": 4.8882,
+      "lat": 52.366772,
+      "rank": 1,
+      "nearTrackMeters": 29,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Overtoom",
+      "type": "tram",
+      "lon": 4.866895,
+      "lat": 52.360616,
+      "rank": 1,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Kinkerstraat",
+      "type": "tram",
+      "lon": 4.872143,
+      "lat": 52.36724,
+      "rank": 2,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Ferdinand Bolstraat",
+      "type": "tram",
+      "lon": 4.89299,
+      "lat": 52.353026,
+      "rank": 1,
+      "nearTrackMeters": 3,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Ceintuurbaan",
+      "type": "tram",
+      "lon": 4.89115,
+      "lat": 52.352793,
+      "rank": 1,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Utrechtsestraat",
+      "type": "tram",
+      "lon": 4.899045,
+      "lat": 52.361943,
+      "rank": 2,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Marnixstraat",
+      "type": "tram",
+      "lon": 4.878771,
+      "lat": 52.367808,
+      "rank": 1,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Weteringschans",
+      "type": "tram",
+      "lon": 4.8904,
+      "lat": 52.35946,
+      "rank": 2,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Nieuwezijds Voorburgwal",
+      "type": "tram",
+      "lon": 4.89073,
+      "lat": 52.373492,
+      "rank": 3,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Admiraal De Ruijterweg",
+      "type": "tram",
+      "lon": 4.858422,
+      "lat": 52.375127,
+      "rank": 2,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Burgemeester De Vlugtlaan",
+      "type": "tram",
+      "lon": 4.829086,
+      "lat": 52.380202,
+      "rank": 2,
+      "nearTrackMeters": 23,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Jan Evertsenstraat",
+      "type": "tram",
+      "lon": 4.838808,
+      "lat": 52.369575,
+      "rank": 3,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Middenweg",
+      "type": "tram",
+      "lon": 4.937557,
+      "lat": 52.349352,
+      "rank": 1,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Linnaeusstraat",
+      "type": "tram",
+      "lon": 4.927041,
+      "lat": 52.357222,
+      "rank": 2,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Insulindeweg",
+      "type": "tram",
+      "lon": 4.938843,
+      "lat": 52.361539,
+      "rank": 3,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Sarphatistraat",
+      "type": "tram",
+      "lon": 4.911134,
+      "lat": 52.361823,
+      "rank": 2,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Amstelveenseweg",
+      "type": "tram",
+      "lon": 4.857452,
+      "lat": 52.347653,
+      "rank": 2,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Van Baerlestraat",
+      "type": "tram",
+      "lon": 4.879564,
+      "lat": 52.356798,
+      "rank": 3,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Beethovenstraat",
+      "type": "tram",
+      "lon": 4.87669,
+      "lat": 52.343984,
+      "rank": 3,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Rozengracht",
+      "type": "tram",
+      "lon": 4.882789,
+      "lat": 52.373937,
+      "rank": 2,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Eerste Constantijn Huygensstraat",
+      "type": "tram",
+      "lon": 4.875089,
+      "lat": 52.363013,
+      "rank": 4,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Bilderdijkstraat",
+      "type": "tram",
+      "lon": 4.870349,
+      "lat": 52.370372,
+      "rank": 3,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Van Woustraat",
+      "type": "tram",
+      "lon": 4.903233,
+      "lat": 52.351683,
+      "rank": 3,
+      "nearTrackMeters": 1,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Meer en Vaart",
+      "type": "tram",
+      "lon": 4.803202,
+      "lat": 52.358959,
+      "rank": 2,
+      "nearTrackMeters": 14,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Javaplein",
+      "type": "tram",
+      "lon": 4.936511,
+      "lat": 52.364652,
+      "rank": 4,
+      "nearTrackMeters": 80,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "De Clercqstraat",
+      "type": "tram",
+      "lon": 4.870529,
+      "lat": 52.370983,
+      "rank": 3,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Johan Huizingalaan",
+      "type": "tram",
+      "lon": 4.827419,
+      "lat": 52.351286,
+      "rank": 3,
+      "nearTrackMeters": 0,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Pieter Calandlaan",
+      "type": "tram",
+      "lon": 4.809457,
+      "lat": 52.354037,
+      "rank": 3,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Pampuslaan",
+      "type": "tram",
+      "lon": 5.005392,
+      "lat": 52.351289,
+      "rank": 3,
+      "nearTrackMeters": 2,
+      "basis": "straatnaam handmatig gekoppeld aan nabijgelegen OSM-tramspoor"
+    },
+    {
+      "name": "Klaprozenweg",
+      "type": "bus",
+      "lon": 4.905146,
+      "lat": 52.399324,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Nieuwe Leeuwarderweg",
+      "type": "bus",
+      "lon": 4.939982,
+      "lat": 52.408407,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Hoofdweg",
+      "type": "bus",
+      "lon": 4.852158,
+      "lat": 52.367884,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Burgemeester Röellstraat",
+      "type": "bus",
+      "lon": 4.825917,
+      "lat": 52.374608,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Daalwijkdreef",
+      "type": "bus",
+      "lon": 4.958555,
+      "lat": 52.32431,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Europaboulevard",
+      "type": "bus",
+      "lon": 4.890168,
+      "lat": 52.335915,
+      "rank": 2,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Bos en Lommerweg",
+      "type": "bus",
+      "lon": 4.850338,
+      "lat": 52.378801,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "De Boelelaan",
+      "type": "bus",
+      "lon": 4.86185,
+      "lat": 52.335154,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Johan van Hasseltweg",
+      "type": "bus",
+      "lon": 4.918462,
+      "lat": 52.389567,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Slotermeerlaan",
+      "type": "bus",
+      "lon": 4.819589,
+      "lat": 52.377033,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Prins Hendrikkade",
+      "type": "bus",
+      "lon": 4.903454,
+      "lat": 52.37548,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "De Ruijterkade",
+      "type": "bus",
+      "lon": 4.900899,
+      "lat": 52.379818,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Cornelis Lelyplein",
+      "type": "bus",
+      "lon": 4.834542,
+      "lat": 52.35664,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Hoogoorddreef",
+      "type": "bus",
+      "lon": 4.947121,
+      "lat": 52.310664,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Carrascoplein",
+      "type": "bus",
+      "lon": 4.838808,
+      "lat": 52.387709,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Kanaaldijk",
+      "type": "bus",
+      "lon": 4.951135,
+      "lat": 52.434084,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Diemerpolderweg",
+      "type": "bus",
+      "lon": 5.00047,
+      "lat": 52.335037,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    },
+    {
+      "name": "Hoogoordplein",
+      "type": "bus",
+      "lon": 4.947232,
+      "lat": 52.311295,
+      "rank": 3,
+      "basis": "straatnaam uit OSM-wegsegment met busbaan-gerelateerde tag"
+    }
+  ]
+}
