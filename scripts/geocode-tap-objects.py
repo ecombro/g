@@ -13,6 +13,21 @@ GEOCODE = "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free"
 NOMINATIM = "https://nominatim.openstreetmap.org/search"
 HEADERS = {"User-Agent":"TAPAmsterdam-study-address-validation/1.0 (github.com/ecombro/g)",
            "Accept":"application/json"}
+# Current official visit address of Reade Jan van Breemen; source: reade.nl/over-ons/locaties/jan-van-breemen
+CORRECTED_ADDRESSES = {
+    "TAP 6. Reade revalidatiecentrum": "Admiraal Helfrichstraat 1, Amsterdam",
+}
+# Station De Vlugtlaan: confirmed metro station OSM node 2237721918 (Mapcarta).
+STATION_PINS = {
+    "TAP 9. Station Vlugtlaan": {
+       "coords": [4.83822, 52.37961],
+       "level": "stationspunt",
+       "source": "OpenStreetMap node 2237721918 (Metrostation De Vlugtlaan)",
+       "confidence": "middel",
+       "matched": "Metrostation De Vlugtlaan, Amsterdam; geen ingang",
+       "match_id": "OSM:node:2237721918",
+    }
+}
 STATIONS = {
   "TAP 8. Station Postjesweg": ["metrostation Postjesweg, Amsterdam", "Postjesweg metrostation Amsterdam"],
   "TAP 9. Station Vlugtlaan": ["metrostation Burgemeester de Vlugtlaan, Amsterdam","Metrostation De Vlugtlaan Amsterdam"],
@@ -88,8 +103,15 @@ def main():
     for i,f in enumerate(feats,1):
         p=f["properties"];name=p["name"];addr=p.get("address","")
         old=f["geometry"]["coordinates"].copy()
+        if name in CORRECTED_ADDRESSES:
+            p.setdefault("historical_address",addr)
+            addr=CORRECTED_ADDRESSES[name]
+            p["address"]=addr
+            p["address_correction"]="actueel bezoekadres volgens Reade; eerder Dr. Jan van Breemenstraat 2"
         try:
-            if name in STATIONS:
+            if name in STATION_PINS:
+                result,error=dict(STATION_PINS[name]),None
+            elif name in STATIONS:
                 result,error=nominatim(STATIONS[name])
             else:
                 result,error=pdok(addr)
@@ -125,6 +147,5 @@ def main():
     (BASE/"tap-coordinates-audit.json").write_text(json.dumps(audit,ensure_ascii=False,indent=2)+"\n",encoding="utf8")
     SOURCE.write_text(json.dumps(geo,ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf8")
     print(f"Result: verified {ok}/40, unresolved {unresolved}",flush=True)
-    # Fail workflow if geocoder could not verify majority; audit is still persisted locally for debug.
-    if ok<30: raise SystemExit("Geocoding too incomplete: fewer than 30 verified; do not publish guesses")
+    if ok<38: raise SystemExit("Geocoding too incomplete: fewer than 38 verified; do not publish guesses")
 if __name__=="__main__":main()
