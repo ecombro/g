@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-10-26T21:02:07.713502+00:00",
+  "checked_at": "2026-10-26T21:03:40.513326+00:00",
   "source": "PDOK Locatieserver / BAG + Nominatim stations",
   "total": 40,
-  "verified": 38,
-  "unresolved": 2,
+  "verified": 40,
+  "unresolved": 0,
   "objects": [
     {
       "id": 1,
@@ -11,14 +11,14 @@
       "address": "Amstel 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9009,
-        52.3661
+        4.9001655,
+        52.3676456
       ],
       "new": [
         4.9001655,
         52.3676456
       ],
-      "shift_m": 178,
+      "shift_m": 0,
       "matched": "Amstel 1, 1011PN Amsterdam",
       "confidence": "hoog"
     },
@@ -28,14 +28,14 @@
       "address": "Frederiksplein 61, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9008,
-        52.3585
+        4.9001227,
+        52.3593643
       ],
       "new": [
         4.9001227,
         52.3593643
       ],
-      "shift_m": 106,
+      "shift_m": 0,
       "matched": "Frederiksplein 61, 1017XL Amsterdam",
       "confidence": "hoog"
     },
@@ -45,14 +45,14 @@
       "address": "IJdok 20, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8955,
-        52.3803
+        4.8950321,
+        52.3837128
       ],
       "new": [
         4.8950321,
         52.3837128
       ],
-      "shift_m": 379,
+      "shift_m": 0,
       "matched": "IJdok 20, 1013MM Amsterdam",
       "confidence": "hoog"
     },
@@ -62,14 +62,14 @@
       "address": "De Boelelaan 1117, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8605,
-        52.3351
+        4.8598299,
+        52.334616
       ],
       "new": [
         4.8598299,
         52.334616
       ],
-      "shift_m": 70,
+      "shift_m": 0,
       "matched": "De Boelelaan 1117, 1081HV Amsterdam",
       "confidence": "hoog"
     },
@@ -79,31 +79,33 @@
       "address": "Nieuwe Passeerdersstraat 6, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8827,
-        52.3656
+        4.8785361,
+        52.3666729
       ],
       "new": [
         4.8785361,
         52.3666729
       ],
-      "shift_m": 307,
+      "shift_m": 0,
       "matched": "Nieuwe Passeerdersstraat 6, 1016XP Amsterdam",
       "confidence": "hoog"
     },
     {
       "id": 6,
       "name": "TAP 6. Reade revalidatiecentrum",
-      "address": "Dr. Jan van Breemenstraat 2, Amsterdam",
-      "status": "onbevestigd",
+      "address": "Admiraal Helfrichstraat 1, Amsterdam",
+      "status": "gecontroleerd_adres",
       "old": [
         4.8411,
         52.3702
       ],
       "new": [
-        4.8411,
-        52.3702
+        4.8444082,
+        52.37074
       ],
-      "reason": "PDOK vond geen exact matchend adres voor Dr. Jan van Breemenstraat 2"
+      "shift_m": 233,
+      "matched": "Admiraal Helfrichstraat 1, 1056AA Amsterdam",
+      "confidence": "hoog"
     },
     {
       "id": 7,
@@ -111,14 +113,14 @@
       "address": "Julianaplein 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9176,
-        52.3469
+        4.9186684,
+        52.3467184
       ],
       "new": [
         4.9186684,
         52.3467184
       ],
-      "shift_m": 75,
+      "shift_m": 0,
       "matched": "Julianaplein 1, 1097DN Amsterdam",
       "confidence": "hoog"
     },
@@ -128,14 +130,14 @@
       "address": "Postjesweg, Amsterdam",
       "status": "stationspunt_niet_ingang",
       "old": [
-        4.834,
-        52.3636
+        4.8339612,
+        52.3642921
       ],
       "new": [
         4.8339612,
         52.3642921
       ],
-      "shift_m": 77,
+      "shift_m": 0,
       "matched": "Postjesweg, Robert Fruinlaan, Slotervaart, Nieuw-West, Amsterdam, Noord-Holland, Nederland, 1065 XR, Nederland",
       "confidence": "middel"
     },
@@ -143,16 +145,18 @@
       "id": 9,
       "name": "TAP 9. Station Vlugtlaan",
       "address": "Burgemeester De Vlugtlaan, Amsterdam",
-      "status": "onbevestigd",
+      "status": "stationspunt_niet_ingang",
       "old": [
         4.837,
         52.3784
       ],
       "new": [
-        4.837,
-        52.3784
+        4.83822,
+        52.37961
       ],
-      "reason": "Stationpositie niet bevestigd door OpenStreetMap"
+      "shift_m": 157,
+      "matched": "Metrostation De Vlugtlaan, Amsterdam; geen ingang",
+      "confidence": "middel"
     },
     {
       "id": 10,
@@ -160,14 +164,14 @@
       "address": "Paulus Potterstraat 7, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.881,
-        52.3582
+        4.8813227,
+        52.3579248
       ],
       "new": [
         4.8813227,
         52.3579248
       ],
-      "shift_m": 38,
+      "shift_m": 0,
       "matched": "Paulus Potterstraat 7, 1071CX Amsterdam",
       "confidence": "hoog"
     },
@@ -177,14 +181,14 @@
       "address": "Prinsengracht 267, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.884,
-        52.3752
+        4.8843172,
+        52.3749364
       ],
       "new": [
         4.8843172,
         52.3749364
       ],
-      "shift_m": 36,
+      "shift_m": 0,
       "matched": "Prinsengracht 267, 1016GV Amsterdam",
       "confidence": "hoog"
     },
@@ -194,14 +198,14 @@
       "address": "Strawinskylaan 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8746,
-        52.337
+        4.8748717,
+        52.3405614
       ],
       "new": [
         4.8748717,
         52.3405614
       ],
-      "shift_m": 394,
+      "shift_m": 0,
       "matched": "Strawinskylaan 1, 1077XW Amsterdam",
       "confidence": "hoog"
     },
@@ -211,14 +215,14 @@
       "address": "Koningin Wilhelminaplein 13, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8396,
-        52.3554
+        4.8411274,
+        52.3545559
       ],
       "new": [
         4.8411274,
         52.3545559
       ],
-      "shift_m": 140,
+      "shift_m": 0,
       "matched": "Koningin Wilhelminaplein 13, 1062HH Amsterdam",
       "confidence": "hoog"
     },
@@ -228,14 +232,14 @@
       "address": "Plantage Kerklaan 38-40, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.912,
-        52.366
+        4.9125816,
+        52.3669615
       ],
       "new": [
         4.9125816,
         52.3669615
       ],
-      "shift_m": 113,
+      "shift_m": 0,
       "matched": "Plantage Kerklaan 38, 1018CZ Amsterdam",
       "confidence": "hoog"
     },
@@ -245,14 +249,14 @@
       "address": "Olympisch Stadion 2, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8578,
-        52.3435
+        4.8551128,
+        52.3438073
       ],
       "new": [
         4.8551128,
         52.3438073
       ],
-      "shift_m": 186,
+      "shift_m": 0,
       "matched": "Olympisch Stadion 2, 1076DE Amsterdam",
       "confidence": "hoog"
     },
@@ -262,14 +266,14 @@
       "address": "Oostzaanstraat 45, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8752,
-        52.393
+        4.8739018,
+        52.3903119
       ],
       "new": [
         4.8739018,
         52.3903119
       ],
-      "shift_m": 310,
+      "shift_m": 0,
       "matched": "Oostzaanstraat 45, 1013WG Amsterdam",
       "confidence": "hoog"
     },
@@ -279,14 +283,14 @@
       "address": "Akersluis 10, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.7976,
-        52.341
+        4.7922019,
+        52.3415664
       ],
       "new": [
         4.7922019,
         52.3415664
       ],
-      "shift_m": 372,
+      "shift_m": 0,
       "matched": "Akersluis 10, 1066EZ Amsterdam",
       "confidence": "hoog"
     },
@@ -296,14 +300,14 @@
       "address": "Osdorperweg 247, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.7755,
-        52.3652
+        4.7908341,
+        52.3516259
       ],
       "new": [
         4.7908341,
         52.3516259
       ],
-      "shift_m": 1827,
+      "shift_m": 0,
       "matched": "Osdorperweg 247, 1069LL Amsterdam",
       "confidence": "hoog"
     },
@@ -313,14 +317,14 @@
       "address": "Louwesweg 401, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8275,
-        52.3509
+        4.8227101,
+        52.3461468
       ],
       "new": [
         4.8227101,
         52.3461468
       ],
-      "shift_m": 618,
+      "shift_m": 0,
       "matched": "Louwesweg 401, 1066EA Amsterdam",
       "confidence": "hoog"
     },
@@ -330,14 +334,14 @@
       "address": "Sarphatistraat 225, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9228,
-        52.364
+        4.9241526,
+        52.3668455
       ],
       "new": [
         4.9241526,
         52.3668455
       ],
-      "shift_m": 328,
+      "shift_m": 0,
       "matched": "Sarphatistraat 225, 1018AE Amsterdam",
       "confidence": "hoog"
     },
@@ -347,14 +351,14 @@
       "address": "Klaprozenweg 31-33, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8952,
-        52.401
+        4.9085952,
+        52.3975844
       ],
       "new": [
         4.9085952,
         52.3975844
       ],
-      "shift_m": 985,
+      "shift_m": 0,
       "matched": "Klaprozenweg 31, 1032KK Amsterdam",
       "confidence": "hoog"
     },
@@ -364,14 +368,14 @@
       "address": "Fred. Roeskestraat 96, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8725,
-        52.3425
+        4.8596991,
+        52.3419225
       ],
       "new": [
         4.8596991,
         52.3419225
       ],
-      "shift_m": 873,
+      "shift_m": 0,
       "matched": "Fred. Roeskestraat 96, 1076ED Amsterdam",
       "confidence": "hoog"
     },
@@ -381,14 +385,14 @@
       "address": "Radioweg 64, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9435,
-        52.35
+        4.9445082,
+        52.349343
       ],
       "new": [
         4.9445082,
         52.349343
       ],
-      "shift_m": 100,
+      "shift_m": 0,
       "matched": "Radioweg 64, 1098NJ Amsterdam",
       "confidence": "hoog"
     },
@@ -398,14 +402,14 @@
       "address": "President Allendelaan 3, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8076,
-        52.3673
+        4.8171202,
+        52.3700186
       ],
       "new": [
         4.8171202,
         52.3700186
       ],
-      "shift_m": 713,
+      "shift_m": 0,
       "matched": "President Allendelaan 3, 1064GW Amsterdam",
       "confidence": "hoog"
     },
@@ -415,14 +419,14 @@
       "address": "Ceintuurbaan 215-217, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.896,
-        52.354
+        4.9023406,
+        52.3553531
       ],
       "new": [
         4.9023406,
         52.3553531
       ],
-      "shift_m": 456,
+      "shift_m": 0,
       "matched": "Ceintuurbaan 215, 1074CV Amsterdam",
       "confidence": "hoog"
     },
@@ -432,14 +436,14 @@
       "address": "Kattengat 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8965,
-        52.377
+        4.8944111,
+        52.377747
       ],
       "new": [
         4.8944111,
         52.377747
       ],
-      "shift_m": 164,
+      "shift_m": 0,
       "matched": "Kattengat 1, 1012SZ Amsterdam",
       "confidence": "hoog"
     },
@@ -449,14 +453,14 @@
       "address": "Professor Tulpplein 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9051,
-        52.3551
+        4.9052427,
+        52.3599843
       ],
       "new": [
         4.9052427,
         52.3599843
       ],
-      "shift_m": 540,
+      "shift_m": 0,
       "matched": "Prof. Tulpplein 1, 1018GX Amsterdam",
       "confidence": "hoog"
     },
@@ -466,14 +470,14 @@
       "address": "Apollolaan 138, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8667,
-        52.3511
+        4.8720121,
+        52.3514297
       ],
       "new": [
         4.8720121,
         52.3514297
       ],
-      "shift_m": 363,
+      "shift_m": 0,
       "matched": "Apollolaan 138, 1077BG Amsterdam",
       "confidence": "hoog"
     },
@@ -483,14 +487,14 @@
       "address": "Ferdinand Bolstraat 333, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8957,
-        52.3474
+        4.8936253,
+        52.3485849
       ],
       "new": [
         4.8936253,
         52.3485849
       ],
-      "shift_m": 193,
+      "shift_m": 0,
       "matched": "Ferdinand Bolstraat 333, 1072LH Amsterdam",
       "confidence": "hoog"
     },
@@ -500,14 +504,14 @@
       "address": "Slotermeerlaan 80, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8228,
-        52.3816
+        4.8206519,
+        52.3786188
       ],
       "new": [
         4.8206519,
         52.3786188
       ],
-      "shift_m": 361,
+      "shift_m": 0,
       "matched": "Slotermeerlaan 80, 1064HD Amsterdam",
       "confidence": "hoog"
     },
@@ -517,14 +521,14 @@
       "address": "Oude Haagseweg 20, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8151,
-        52.3417
+        4.817336,
+        52.3372142
       ],
       "new": [
         4.817336,
         52.3372142
       ],
-      "shift_m": 519,
+      "shift_m": 0,
       "matched": "Oude Haagseweg 20, 1066BW Amsterdam",
       "confidence": "hoog"
     },
@@ -534,14 +538,14 @@
       "address": "Distelkade 21, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9101,
-        52.399
+        4.9109013,
+        52.3921832
       ],
       "new": [
         4.9109013,
         52.3921832
       ],
-      "shift_m": 756,
+      "shift_m": 0,
       "matched": "Distelkade 21, 1031XP Amsterdam",
       "confidence": "hoog"
     },
@@ -551,14 +555,14 @@
       "address": "Weteringschans 6-8, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.883,
-        52.3622
+        4.883945,
+        52.3622775
       ],
       "new": [
         4.883945,
         52.3622775
       ],
-      "shift_m": 65,
+      "shift_m": 0,
       "matched": "Weteringschans 6, 1017SG Amsterdam",
       "confidence": "hoog"
     },
@@ -568,14 +572,14 @@
       "address": "Bellamystraat 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8688,
-        52.368
+        4.8671355,
+        52.3672649
       ],
       "new": [
         4.8671355,
         52.3672649
       ],
-      "shift_m": 139,
+      "shift_m": 0,
       "matched": "Bellamystraat 1A-1, 1053BE Amsterdam",
       "confidence": "hoog"
     },
@@ -585,14 +589,14 @@
       "address": "Meer en Vaart 300, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8024,
-        52.359
+        4.8073521,
+        52.359051
       ],
       "new": [
         4.8073521,
         52.359051
       ],
-      "shift_m": 337,
+      "shift_m": 0,
       "matched": "Meer en Vaart 300, 1068LE Amsterdam",
       "confidence": "hoog"
     },
@@ -602,14 +606,14 @@
       "address": "Buikslotermeerplein 2000, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.935,
-        52.399
+        4.9329224,
+        52.4008349
       ],
       "new": [
         4.9329224,
         52.4008349
       ],
-      "shift_m": 247,
+      "shift_m": 0,
       "matched": "Buikslotermeerplein 2000, 1025XL Amsterdam",
       "confidence": "hoog"
     },
@@ -619,14 +623,14 @@
       "address": "Oranje-Vrijstaatplein 2, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.934,
-        52.357
+        4.9308964,
+        52.3567474
       ],
       "new": [
         4.9308964,
         52.3567474
       ],
-      "shift_m": 213,
+      "shift_m": 0,
       "matched": "Oranje-Vrijstaatplein 2, 1093NG Amsterdam",
       "confidence": "hoog"
     },
@@ -636,14 +640,14 @@
       "address": "President Kennedylaan 923, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.9074,
-        52.3453
+        4.8939533,
+        52.3404776
       ],
       "new": [
         4.8939533,
         52.3404776
       ],
-      "shift_m": 1059,
+      "shift_m": 0,
       "matched": "President Kennedylaan 923, 1079MZ Amsterdam",
       "confidence": "hoog"
     },
@@ -653,14 +657,14 @@
       "address": "Bos en Lommerplein 250, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8469,
-        52.3786
+        4.8451418,
+        52.3780055
       ],
       "new": [
         4.8451418,
         52.3780055
       ],
-      "shift_m": 136,
+      "shift_m": 0,
       "matched": "Bos en Lommerplein 250, 1055EK Amsterdam",
       "confidence": "hoog"
     },
@@ -670,14 +674,14 @@
       "address": "Osdorpplein 1000, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8087,
-        52.3591
+        4.8069017,
+        52.3580768
       ],
       "new": [
         4.8069017,
         52.3580768
       ],
-      "shift_m": 167,
+      "shift_m": 0,
       "matched": "Osdorpplein 1000, 1068TG Amsterdam",
       "confidence": "hoog"
     }
