@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-26T21:03:40.513326+00:00",
+  "checked_at": "2026-10-26T21:13:56.501016+00:00",
   "source": "PDOK Locatieserver / BAG + Nominatim stations",
   "total": 40,
   "verified": 40,
@@ -96,14 +96,14 @@
       "address": "Admiraal Helfrichstraat 1, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
-        4.8411,
-        52.3702
+        4.8444082,
+        52.37074
       ],
       "new": [
         4.8444082,
         52.37074
       ],
-      "shift_m": 233,
+      "shift_m": 0,
       "matched": "Admiraal Helfrichstraat 1, 1056AA Amsterdam",
       "confidence": "hoog"
     },
@@ -147,21 +147,21 @@
       "address": "Burgemeester De Vlugtlaan, Amsterdam",
       "status": "stationspunt_niet_ingang",
       "old": [
-        4.837,
-        52.3784
+        4.83822,
+        52.37961
       ],
       "new": [
         4.83822,
         52.37961
       ],
-      "shift_m": 157,
+      "shift_m": 0,
       "matched": "Metrostation De Vlugtlaan, Amsterdam; geen ingang",
       "confidence": "middel"
     },
     {
       "id": 10,
       "name": "TAP 10. Van Gogh Museum",
-      "address": "Paulus Potterstraat 7, Amsterdam",
+      "address": "Museumplein 6, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
         4.8813227,
@@ -172,13 +172,13 @@
         52.3579248
       ],
       "shift_m": 0,
-      "matched": "Paulus Potterstraat 7, 1071CX Amsterdam",
+      "matched": "Museumplein 6, 1071DJ Amsterdam",
       "confidence": "hoog"
     },
     {
       "id": 11,
       "name": "TAP 11. Anne Frankhuis",
-      "address": "Prinsengracht 267, Amsterdam",
+      "address": "Westermarkt 20, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
         4.8843172,
@@ -189,7 +189,7 @@
         52.3749364
       ],
       "shift_m": 0,
-      "matched": "Prinsengracht 267, 1016GV Amsterdam",
+      "matched": "Westermarkt 20, 1016DK Amsterdam",
       "confidence": "hoog"
     },
     {
@@ -569,18 +569,18 @@
     {
       "id": 34,
       "name": "TAP 34. De Hallen",
-      "address": "Bellamystraat 1, Amsterdam",
+      "address": "Hannie Dankbaarpassage 47, Amsterdam",
       "status": "gecontroleerd_adres",
       "old": [
         4.8671355,
         52.3672649
       ],
       "new": [
-        4.8671355,
-        52.3672649
+        4.8680156,
+        52.3663947
       ],
-      "shift_m": 0,
-      "matched": "Bellamystraat 1A-1, 1053BE Amsterdam",
+      "shift_m": 113,
+      "matched": "Hannie Dankbaarpassage 47, 1053RT Amsterdam",
       "confidence": "hoog"
     },
     {
