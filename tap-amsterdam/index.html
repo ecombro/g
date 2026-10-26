@@ -6,7 +6,7 @@
 <meta name="description" content="Amsterdam TAP oefenkaart met 40 objecten, uitsluitingen, routeoefening en verkeerstheorie.">
 <title>TAP Amsterdam — oefenkaart en regels voor lijnbusbanen</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="./styles.css?v=20261020-tram-bus-v2">
+<link rel="stylesheet" href="./styles.css?v=20261026-hoofdaders-v1">
 </head>
 <body>
 <header>
@@ -72,9 +72,12 @@
   <div class="toolrow">
   <button class="btn outline" id="trams" type="button" aria-pressed="true">Tramsporen: aan</button>
   <button class="btn outline" id="buses" type="button" aria-pressed="true">Busbanen: aan</button>
+  <button class="btn outline" id="arteries" type="button" aria-pressed="true">Hoofdaders: aan</button>
+  <button class="btn outline" id="arteryFont" type="button">Straatnamen A+</button>
+  <div id="arteryCount" class="corridor-count">Hoofdstraatnamen laden…</div>
   <div class="infra-status"><div><span class="infra-dot purple"></span><span id="tramStatus">Tramsporen laden…</span></div><div><span class="infra-dot orange"></span><span id="busStatus">Busbanen laden…</span></div></div>
  </div>
-  <div class="status" id="status">Kaart laden…</div>
+  <div class="status" id="status">Kaart laden…</div><div class="artery-live" id="arteryLive" aria-live="polite"></div>
  </section>
 </div>
 <div class="details" id="details" hidden>
@@ -83,7 +86,7 @@
  <a class="btn secondary" id="sourceLink" rel="noopener" target="_blank">Officiële verkeersregel ↗</a>
  <button class="btn secondary" id="fromHere">Start hier</button><button class="btn secondary" id="toHere">Bestemming</button></div>
 </div>
-<div class="legend"><span><i class="spot blue"></i>TAP-object (indicatief)</span><span><i class="spot red"></i>Uitsluiting (waarschuwingspunt)</span><span><i class="spot purple"></i>OSM-tramspoor (status onbekend)</span><span><i class="spot orange"></i>OSM-busbaanindicatie (status onbekend)</span></div>
+<div class="legend"><span><i class="spot blue"></i>TAP-object (indicatief)</span><span><i class="spot red"></i>Uitsluiting (waarschuwingspunt)</span><span><i class="spot purple"></i>OSM-tramspoor (status onbekend)</span><span><i class="spot orange"></i>OSM-busbaanindicatie (status onbekend)</span><span>Grote paarse/oranje straatnamen: oriëntatie op hoofdaders, niet juridisch gevalideerd</span></div>
 <footer>
 <span id="dataCount">Kaartgegevens laden…</span> · Studieversie 20 oktober 2026 · Gebaseerd op historische TAP-objecten en verkeersbesluiten; status niet overal opnieuw geverifieerd.
 <div><a href="https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html" target="_blank" rel="noopener">Amsterdamse lijnbusbaanvoorschriften (2018)</a>
@@ -92,5 +95,5 @@
 </footer>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="./app.js?v=20261020-tram-bus-v2"></script>
+<script src="./app.js?v=20261026-hoofdaders-v1"></script>
 </body></html>
