@@ -34,3 +34,10 @@ header{padding:16px 22px;background:white;border-bottom:1px solid var(--line);di
 .corridor-count{color:#526a83;font-size:11px;text-align:right;font-weight:650;background:#fffffff2;padding:5px 7px;border-radius:8px;width:100%}
 .artery-live{position:absolute;bottom:18px;right:12px;z-index:500;background:#fffe;padding:5px 8px;border-radius:7px;color:#42546e;font-size:11px;box-shadow:0 2px 8px #0001}
 @media(max-width:800px){.artery-label{padding:4px 6px 5px 5px}.artery-label strong{font-weight:800}.artery-live{bottom:44px;right:8px;font-size:10px}}
+
+/* Position confidence on TAP pins */
+.tap-dot.verified{background:#176bd1}
+.tap-dot.station{background:#d18b18}
+.tap-dot.unverified{background:#ce3444}
+.entry .pin-status{font-size:10px;font-weight:700;color:#557089;margin-top:5px}
+.tap-pin-container .tap-dot.station + .pin-caption{border-color:#dfa849}
