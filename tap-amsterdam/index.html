@@ -6,8 +6,8 @@
 <meta name="description" content="Amsterdam TAP oefenkaart met 40 objecten, uitsluitingen, routeoefening en verkeerstheorie.">
 <title>TAP Amsterdam — oefenkaart en regels voor lijnbusbanen</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="./styles.css?v=20261026-tap40-correct">
-</head>
+<link rel="stylesheet" href="./styles.css?v=verified-v4">
+<style>.pin-coordinates{font-size:11px;font-weight:bold;color:#24558b;background:#f5f9ff;padding:7px;white-space:normal}</style></head>
 <body>
 <header>
   <div><h1>↗ TAP Amsterdam</h1><div class="sub">Oefenkaart voor Amsterdamse taxibanen en het TAP-praktijkexamen</div></div>
@@ -81,8 +81,8 @@
  </section>
 </div>
 <div class="details" id="details" hidden>
- <strong id="detailTitle"></strong><p id="detailDesc"></p><div class="alert" id="detailWarning"></div>
- <div class="row"><a class="btn outline" id="mapsLink" rel="noopener" target="_blank">Bekijk in Google Maps ↗</a>
+ <strong id="detailTitle"></strong><p id="detailDesc" style="white-space:pre-line"></p><p id="pinCoords" class="pin-coordinates"></p><div class="alert" id="detailWarning"></div>
+ <div class="row"><a class="btn outline" id="mapsLink" rel="noopener" target="_blank">Zoek bezoekadres ↗</a><a class="btn outline" id="pinLink" rel="noopener" target="_blank">Bekijk exact kaartpunt ↗</a>
  <a class="btn secondary" id="sourceLink" rel="noopener" target="_blank">Officiële verkeersregel ↗</a>
  <button class="btn secondary" id="fromHere">Start hier</button><button class="btn secondary" id="toHere">Bestemming</button></div>
 </div>
@@ -95,5 +95,5 @@
 </footer>
 </main>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="./app.js?v=20261026-tap40-correct"></script>
+<script src="./app-adressen-v4.js"></script>
 </body></html>
