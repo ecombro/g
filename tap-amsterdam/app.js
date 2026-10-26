@@ -284,7 +284,7 @@ async function init(){
  makeMap();
  loadArteryNames();
  try{
- const resp=await fetch("./kaart.geojson",{cache:"no-store"});if(!resp.ok)throw Error("HTTP "+resp.status);
+ const resp=await fetch("./kaart.geojson?validated=20261026-bag40",{cache:"no-store"});if(!resp.ok)throw Error("HTTP "+resp.status);
  const geo=await resp.json();state.all=geo.features||[];state.tap=state.all.filter(o=>o.properties.category==="TAP-object");state.rules=state.all.filter(o=>o.properties.category!=="TAP-object");
  const zones={Centrum:[1,2,3,5,11,14,26,27,33],Zuid:[4,10,12,15,22,25,28,29,38],Oost:[7,20,23,37],Noord:[21,32,36],West:[6,8,9,13,16,17,18,19,24,30,31,34,35,39,40]};
  for(const o of state.tap){const id=Number(o.properties.name.match(/TAP (\d+)/)?.[1]);o.properties.area=Object.keys(zones).find(z=>zones[z].includes(id))||"West";}
