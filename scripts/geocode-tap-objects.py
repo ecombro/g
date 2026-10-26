@@ -16,6 +16,9 @@ HEADERS = {"User-Agent":"TAPAmsterdam-study-address-validation/1.0 (github.com/e
 # Current official visit address of Reade Jan van Breemen; source: reade.nl/over-ons/locaties/jan-van-breemen
 CORRECTED_ADDRESSES = {
     "TAP 6. Reade revalidatiecentrum": "Admiraal Helfrichstraat 1, Amsterdam",
+    "TAP 10. Van Gogh Museum": "Museumplein 6, Amsterdam",
+    "TAP 11. Anne Frankhuis": "Westermarkt 20, Amsterdam",
+    "TAP 34. De Hallen": "Hannie Dankbaarpassage 47, Amsterdam",
 }
 # Station De Vlugtlaan: confirmed metro station OSM node 2237721918 (Mapcarta).
 STATION_PINS = {
@@ -107,7 +110,8 @@ def main():
             p.setdefault("historical_address",addr)
             addr=CORRECTED_ADDRESSES[name]
             p["address"]=addr
-            p["address_correction"]="actueel bezoekadres volgens Reade; eerder Dr. Jan van Breemenstraat 2"
+            p["visitor_address_status"]="officiële bezoekadresbron geverifieerd voor geselecteerde objecten"
+            p["address_correction"]="actueel bezoekadres van de locatie; het eerdere (historische) objectadres blijft in historical_address"
         try:
             if name in STATION_PINS:
                 result,error=dict(STATION_PINS[name]),None
