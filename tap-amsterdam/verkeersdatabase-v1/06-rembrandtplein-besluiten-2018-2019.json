@@ -1,0 +1,103 @@
+{
+  "schema": "tap.amsterdam.rembrandtplein_decision_facts.v1",
+  "researched_on": "2026-10-29",
+  "sources": [
+    "AMS-2018-29822",
+    "AMS-2019-13250"
+  ],
+  "facts": [
+    {
+      "id": "AMS18-29822-01a",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 1a",
+      "location": "Rembrandtplein direct na verlengde Reguliersdwarsstraat",
+      "action": "G7-zonebord verwijderen",
+      "legal_category": "inrichting verkeerszone",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS18-29822-01b",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 1b",
+      "location": "Amstelstraat direct na in- en uitrit parkeergarage The Bank Rembrandtplein",
+      "action": "G7-zonebord en C2-bord verwijderen",
+      "legal_category": "inrichting verkeerszone",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS18-29822-01c",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 1c",
+      "location": "Reguliersbreestraat direct na kruispunt met Rembrandtplein",
+      "action": "G7-zonebord verwijderen",
+      "legal_category": "inrichting verkeerszone",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS18-29822-02a",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 2a",
+      "location": "Rembrandtplein direct na verlengde Reguliersdwarsstraat",
+      "action": "C1-zone met uitzonderingen openbaar vervoer, fietsers, laden/lossen 07:00–11:00 en taxi's vrijdag t/m zondag 01:00–06:00",
+      "legal_category": "historische besluittekst met uitzondering en tijdvensters",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS18-29822-03a",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 3a",
+      "location": "Amstelstraat direct na in- en uitrit parkeergarage The Bank Rembrandtplein",
+      "action": "C1-zone met uitzondering voor openbaar vervoer",
+      "legal_category": "historische besluittekst",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS18-29822-04a",
+      "source_id": "AMS-2018-29822",
+      "clause": "Besluit 4a",
+      "location": "Reguliersbreestraat direct na kruispunt met Rembrandtplein",
+      "action": "C1-zone met uitzondering laden/lossen 07:00–11:00",
+      "legal_category": "historische besluittekst",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    },
+    {
+      "id": "AMS19-13250-01",
+      "source_id": "AMS-2019-13250",
+      "clause": "Besluit (p.2)",
+      "location": "Amstelstraat, Reguliersbreestraat en Utrechtsestraat; alleen delen die direct naar Rembrandtplein leiden",
+      "action": "Onder bestaande inrijverboden aanvullende onderborden 'Lijnbusbaanontheffing niet van toepassing' plaatsen om taxi-inrijverbod in te stellen",
+      "legal_category": "historische besluittekst",
+      "fact_type": "published_traffic_decision",
+      "geometry": null,
+      "current_taxi_access": null,
+      "physically_installed": null,
+      "route_permission_created": false
+    }
+  ],
+  "publication_note": "Verkeersbesluit bevat niet automatisch bewijs van feitelijke plaatsing, actuele werking of exacte per-rijbaan-geometrie.",
+  "uncertainty_isolated_from_approved_lane_dataset": true
+}
