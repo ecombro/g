@@ -22,6 +22,7 @@
 | U-13 | Hoe koppelen we ontheffing voor reguliere taxi, TTO, AOV, rijles en examens? | Rechten/uitzonderingen verschillen; onjuiste gezamenlijke status creëert veiligheidsrisico. | Juridisch geverifieerde profielvoorwaarden en officiële bevestiging. |
 | U-14 | Zijn alle latere besluiten in Amsterdam vanaf 2018 volledig verzameld? | De huidige onderzoekssessie vond relevante 2021/2026-publicaties maar geen gegarandeerd uitputtende databank. | Systematische gemeentelijke export, bevindingenregister en terugkerende besluitcontrole. |
 | U-15 | Zijn 'bevestigde' verkeersborden uit NDW volledig? | George meldt dat slechts een deel van landelijke borden in oorspronkelijke dataset staat; niet alle borden zijn geverifieerd. | NDW-ID, verificatiedatum, onderborddetails en fysieke controle. |
+| U-16 | Geldt een eventuele toekomstige emissie-eis (alleen elektrische-/waterstoftaxi's) al voor lijnbusbaanontheffingen? | De gemeente noemt dit als beleidsvoorstel; een voorstel is geen huidige inrijregel. | Vastgestelde beleidsregels met inwerkingtreding en expliciete uitzonderingen. |
 
 ## Strikte scheiding
 
