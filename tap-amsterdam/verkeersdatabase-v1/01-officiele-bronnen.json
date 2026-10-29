@@ -1,7 +1,7 @@
 {
   "schema": "tap.amsterdam.official_sources.v1",
   "researched_on": "2026-10-29",
-  "source_count": 6,
+  "source_count": 8,
   "sources": [
     {
       "id": "AMS-2018-38595",
@@ -75,6 +75,33 @@
         "Voorwaarden"
       ],
       "note": "Gemeentelijke servicepagina kan veranderen; geen zelfstandige rijbaantoestemming."
+    },
+    {
+      "id": "AMS-2018-29822",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Staatscourant 2018 nr. 29822: verkeersbesluit geslotenverklaring Rembrandtplein en Amstelstraat",
+      "publication_date": "2018-05-28",
+      "source_url": "https://zoek.officielebekendmakingen.nl/stcrt-2018-29822.html",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit 1",
+        "Besluit 2",
+        "Besluit 3",
+        "Besluit 4"
+      ],
+      "note": "Het beschreven tijdvenster is een historisch besluitfeit; actuele toepasbaarheid naast latere besluitgeving vergt controle."
+    },
+    {
+      "id": "AMS-2019-13250",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Staatscourant 2019 nr. 13250: inrijverbod taxi's naar Rembrandtplein",
+      "publication_date": "2019-03-07",
+      "source_url": "https://zoek.officielebekendmakingen.nl/stcrt-2019-13250.pdf",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit p.2"
+      ],
+      "note": "Besluit vermeldt een bijgevoegde tekening, maar deze is niet opgenomen in de geraadpleegde PDF; exacte geometrie niet vaststellen."
     }
   ]
 }
