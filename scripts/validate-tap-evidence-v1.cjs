@@ -9,20 +9,24 @@ const decisions=read("03-officiele-besluitpunten-2021-2026.json");
 const permit=read("04-gemeentelijke-ontheffingsfeiten.json");
 const rembrandt=read("06-rembrandtplein-besluiten-2018-2019.json");
 const centerEvidence=read("07-centrum-verificatie-2026-10-29.json");
+const verifiedCorrections=read("08-gecontroleerde-correcties-damrak-rokin-rembrandtplein.json");
 const released=read("05-vrijgegeven-wegvakken.geojson");
 function ensure(condition,message){if(!condition)throw new Error(message)}
 const refs=new Set(sources.sources.map(x=>x.id));
 ensure(refs.size===sources.sources.length,"Duplicate primary source ID");
-ensure(refs.size===8,"Expected eight official sources including 2018/2019 Rembrandtplein decisions");
+ensure(refs.size===11,"Expected eleven official public primary sources");
 for(const s of sources.sources){
   ensure(s.publisher==="Gemeente Amsterdam","Unverified institution");
-  ensure(/^https:\/\/(zoek\.officielebekendmakingen\.nl|www\.amsterdam\.nl)\//.test(s.source_url),"Source not official "+s.id);
+  ensure(/^https:\/\/(zoek\.officielebekendmakingen\.nl|www\.amsterdam\.nl|lokaleregelgeving\.overheid\.nl)\//.test(s.source_url),"Source not official "+s.id);
 }
 ensure(original.exclusion_entries.length===41,"2018 exclusions count mismatch");
 ensure(original.permit_rule_facts_list.length===10,"2018 permit conditions mismatch");
 ensure(decisions.decision_actions.length===52,"2021 and 2026 decision count mismatch");
 ensure(permit.statements.length===6,"Current permit info count mismatch");
 ensure(rembrandt.facts.length===7,"Rembrandtplein must have seven source-clause facts");
+ensure(verifiedCorrections.facts.length===6&&verifiedCorrections.approved_lane_geometries===0&&verifiedCorrections.does_not_update_live_map===true,"Fact corrections must not publish current taxi routes");
+ensure(verifiedCorrections.facts.every(f=>refs.has(f.source_id)&&f.fact_type==="verified_source_statement"&&f.lane_geometry===null&&f.geographic_approach_route===null&&f.current_legal_taxi_route_status===null&&f.approved_for_routing===false),"Source statements must not become routing rules");
+for(const road of ["Damrak","Rokin"]){let rec=original.exclusion_entries.find(x=>x.road_or_place===road);ensure(rec?.exclusion_permanence_in_2018_text==="permanent"&&rec.direction_stated_in_source==="beide"&&rec.current_geometry_approved===false,road+" exclusion must be documented narrowly");}
 ensure(centerEvidence.corridors.length===5&&centerEvidence.approved_lane_count===0&&centerEvidence.live_map_changed===false,"No live traffic conclusions allowed in corridor source matrix");
 for(const corridor of centerEvidence.corridors){
   ensure(corridor.verified_documentary_claim_only===true&&corridor.approved_for_live_map===false&&corridor.certified_current_road_access===false&&corridor.verified_lane_geometry===null&&corridor.verified_direction===null,"Cannot publish unverified center corridor");
@@ -37,7 +41,7 @@ ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-174698").len
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-187433").length===3,"Pampuslaan must have 3 points");
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-376185").length===4,"Holendrecht must have 4 points");
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2021-291618").length===2,"Weteringschans must have 2 points");
-const ids=[...original.exclusion_entries,...original.permit_rule_facts_list,...decisions.decision_actions,...permit.statements,...rembrandt.facts].map(x=>x.record_id||x.id);
+const ids=[...original.exclusion_entries,...original.permit_rule_facts_list,...decisions.decision_actions,...permit.statements,...rembrandt.facts,...verifiedCorrections.facts].map(x=>x.record_id||x.id);
 ensure(ids.length===new Set(ids).size,"Duplicate record ID");
 const wetering=original.exclusion_entries.find(x=>x.road_or_place==="Weteringschans");
 ensure(wetering?.related_later_decision==="AMS-2021-291618"&&wetering.historical_window_is_not_current_guidance===true,"Old Weteringschans window must not be presented as current");
@@ -51,4 +55,4 @@ ensure(released.type==="FeatureCollection"&&Array.isArray(released.features),"Ap
 ensure(released.metadata.published_to_live_map===false,"No approval to publish to live map");
 ensure(released.features.length===0,"STOP: user has NOT authorized publishing any road segments");
 ensure(released.metadata.approved_segment_count===0,"Approved count must remain zero");
-console.log(JSON.stringify({result:"PASS",official_sources:refs.size,rembrandtplein_source_clauses:rembrandt.facts.length,corridors_reviewed:5,documented_2018_exclusions:41,documented_2018_conditions:10,documented_decision_actions:52,permit_information:6,approved_lane_geometries:0,live_map_changed:false},null,2));
+console.log(JSON.stringify({result:"PASS",official_sources:refs.size,rembrandtplein_source_clauses:rembrandt.facts.length,corridors_reviewed:5,source_specific_corrections:verifiedCorrections.facts.length,documented_2018_exclusions:41,documented_2018_conditions:10,documented_decision_actions:52,permit_information:6,approved_lane_geometries:0,live_map_changed:false},null,2));
