@@ -1,0 +1,24 @@
+name: TAP factual-data verification gate
+on:
+  push:
+    paths:
+      - "tap-amsterdam/verkeersdatabase-v1/**"
+      - "scripts/validate-tap-evidence-v1.cjs"
+      - ".github/workflows/tap-traffic-facts-validation.yml"
+  pull_request:
+    paths:
+      - "tap-amsterdam/verkeersdatabase-v1/**"
+      - "scripts/validate-tap-evidence-v1.cjs"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify official-source facts and refuse unapproved lane releases
+        run: node scripts/validate-tap-evidence-v1.cjs
