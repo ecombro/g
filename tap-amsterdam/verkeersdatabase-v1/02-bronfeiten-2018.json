@@ -67,7 +67,13 @@
       "direction_stated_in_source": "beide",
       "fact_type": "appears_in_2018_legal_exclusion_list",
       "map_geometry": null,
-      "computed_taxi_access": null
+      "computed_taxi_access": null,
+      "exclusion_permanence_in_2018_text": "permanent",
+      "applies_to": "medegebruik van lijnbusbaan en/of tram-/busstrook volgens lijnbusbaanontheffing",
+      "does_not_mean": "Geen algeheel inrijverbod voor reguliere autorijbaan: het betreft de uitgesloten OV-baan.",
+      "grounded_source_quote_scope": "Voorschrift 10, stadsdeel Centrum; permanente uitsluitingslijst",
+      "current_geometry_approved": false,
+      "route_permission_created": false
     },
     {
       "record_id": "AMS18-10-06",
@@ -80,7 +86,13 @@
       "direction_stated_in_source": "beide",
       "fact_type": "appears_in_2018_legal_exclusion_list",
       "map_geometry": null,
-      "computed_taxi_access": null
+      "computed_taxi_access": null,
+      "exclusion_permanence_in_2018_text": "permanent",
+      "applies_to": "medegebruik van lijnbusbaan en/of tram-/busstrook volgens lijnbusbaanontheffing",
+      "does_not_mean": "Geen algeheel inrijverbod voor reguliere autorijbaan: het betreft de uitgesloten OV-baan.",
+      "grounded_source_quote_scope": "Voorschrift 10, stadsdeel Centrum; permanente uitsluitingslijst",
+      "current_geometry_approved": false,
+      "route_permission_created": false
     },
     {
       "record_id": "AMS18-10-07",
