@@ -10,7 +10,7 @@
 
 | Bestand | Inhoud | Aantal |
 |---|---|---:|
-| \`01-officiele-bronnen.json\` | Gemeentelijke officiële bronnen, publicatiedatum en link | 6 |
+| \`01-officiele-bronnen.json\` | Gemeentelijke officiële bronnen, publicatiedatum en link | 11 |
 | \`02-bronfeiten-2018.json\` | Specifiek in de tekst van voorschrift 10 genoemde uitsluitingen | 41 |
 | \`02-bronfeiten-2018.json\` | Ontheffings-/gedragsvoorwaarden, naar voorschriftnummer | 10 |
 | \`03-officiele-besluitpunten-2021-2026.json\` | Weteringschans 2021: besluitpunten | 2 |
@@ -19,6 +19,10 @@
 | Idem | Holendrecht augustus 2026: besluitpunten | 4 |
 | \`04-gemeentelijke-ontheffingsfeiten.json\` | Actuele informatie op de website van de gemeente | 6 |
 | \`05-vrijgegeven-wegvakken.geojson\` | Voor rijschoolgebruik goedgekeurde geometrische taxiwegvakken | **0** |
+
+| 06-rembrandtplein-besluiten-2018-2019.json | Besluitclausules Rembrandtplein/Amstelstraat/Reguliersbreestraat | 7 |
+| 07-centrum-verificatie-2026-10-29.json | Vijf onderzochte centrumcorridors, geen goedgekeurde segmenten | 5 |
+| 08-gecontroleerde-correcties-damrak-rokin-rembrandtplein.json | Bronbevestigde OV-uitsluitingen en bijzondere TTO-standplaatsfeiten | 6 |
 
 **Opgelet:** 41 verwijzingen uit een besluit in 2018 zijn **geen** 41 in 2026 opnieuw geverifieerde actuele verboden wegvakken. Hetzelfde geldt voor de 43 verkeersmaatregelen in april 2026: dit zijn geen 43 voor taxi's toegestane straten.
 
@@ -79,3 +83,12 @@ De GitHub-workflow \`tap-traffic-facts-validation.yml\` start automatisch op upd
 - **Weteringschans:** 2021 gmb-2021-291618 is leidend bij lezen van de historische tijdsuitsluiting van 2018, specifiek voor het trambaanonderdeel en Kleine-Gartmanplantsoen. Reguliere autoweg ernaast niet met het OV-wegvak verwarren.
 
 Alle meldingen hierboven zijn **gedateerde documentfeiten**, geen actuele routeinstructies. De review van latere niet-gevonden besluiten en de daadwerkelijke borden/tekeningen blijft open. **De live kaart blijft onveranderd en de goedgekeurde taxi-wegsegmenten blijven op nul.**
+
+## Correcties praktijkinput — 29 oktober 2026
+
+- **Damrak en Rokin:** Gemeenteblad 2018-38595, voorschrift 10, noemt beide OV-banen als permanent uitgesloten voor taximedegebruik, in beide richtingen. Dit is geen volledig inrijverbod voor reguliere autorijbanen. Geen kaartgeometrie vrijgegeven.
+- **Rembrandtplein:** de gemeente vermeldt een inrijverbod en camera bij Amstelstraat, en een pop-upstandplaats oostkant met mogelijkheid om richting Amstelstraat uit te rijden op vrijdag-, zaterdag- en zondagnacht 01:00–06:00. Een apart verkeersbesluit uit 2018 maakt de taxistandplaats Utrechtsestraat 18–9 alleen toegankelijk voor TTO-taxi's op vrijdag t/m zondag 01:00–06:00; de Taxiverordening noemt Rembrandtplein in TTO-standplaatsbeheer.
+- **Nog niet bewezen:** of de Utrechtsestraat-standplaats dezelfde fysieke standplaats is als de oostelijke pop-up, exacte actuele toegang en beperkingen voor andere weggebruikers. Geen route of polygon publiceren zonder situatietekening en bordcontrole.
+- **Live kaart niet aangepast; vrijgegeven geometrische segmenten blijven nul.**
+
+Officiële bronnen: https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html ; https://www.amsterdam.nl/verkeer-vervoer/inrijverboden-binnenstad/ ; https://zoek.officielebekendmakingen.nl/stcrt-2018-63732.pdf ; https://lokaleregelgeving.overheid.nl/CVDR432706 .
