@@ -1,7 +1,7 @@
 {
   "schema": "tap.amsterdam.official_sources.v1",
   "researched_on": "2026-10-29",
-  "source_count": 8,
+  "source_count": 11,
   "sources": [
     {
       "id": "AMS-2018-38595",
@@ -102,6 +102,45 @@
         "Besluit p.2"
       ],
       "note": "Besluit vermeldt een bijgevoegde tekening, maar deze is niet opgenomen in de geraadpleegde PDF; exacte geometrie niet vaststellen."
+    },
+    {
+      "id": "AMS-WEB-INRIJVERBODEN-CENTRUM",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Inrijverboden binnenstad — Rembrandtplein en pop-up taxistandplaats",
+      "publication_date": null,
+      "source_url": "https://www.amsterdam.nl/verkeer-vervoer/inrijverboden-binnenstad/",
+      "source_type": "actuele_gemeentelijke_informatiepagina",
+      "read_sections": [
+        "Inrijverboden",
+        "Camerahandhaving",
+        "Taxistandplaatsen"
+      ],
+      "note": "Gemeente bevestigt inrijverbod Rembrandtplein, camera Amstelstraat en pop-up standplaats oostkant; doorgang Rembrandtplein naar Amstelstraat op vrij/za/zon 01:00–06:00. Niet bewijs van exclusieve toegangsroute."
+    },
+    {
+      "id": "AMS-2018-63732",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Verkeersbesluit TTO taxistandplaats Utrechtsestraat 18 tot Rembrandtplein",
+      "publication_date": "2018-11-08",
+      "source_url": "https://zoek.officielebekendmakingen.nl/stcrt-2018-63732.pdf",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluitpunt 1 en 2 p.2"
+      ],
+      "note": "Standplaats Utrechtsestraat 18 tot Utrechtsestraat 9, TTO-taxi's vr t/m zo 01:00–06:00 na plaatsing borden. Niet zonder verificatie gelijkstellen aan oostkant Rembrandtplein pop-up."
+    },
+    {
+      "id": "AMS-TAXIVERORDENING",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Taxiverordening Amsterdam 2012 — artikel 2.8 en bijlage III",
+      "publication_date": null,
+      "source_url": "https://lokaleregelgeving.overheid.nl/CVDR432706",
+      "source_type": "geconsolideerde_verordening",
+      "read_sections": [
+        "Artikel 2.8",
+        "Bijlage III"
+      ],
+      "note": "Rembrandtplein is benoemde standplaats voor TTO-standplaatsmanagement, inclusief vereiste overeenkomst; controleer actuele versie en specifieke toegangsroute."
     }
   ]
 }
