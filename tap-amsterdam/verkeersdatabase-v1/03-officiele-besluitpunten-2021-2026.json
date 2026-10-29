@@ -1,0 +1,524 @@
+{
+  "schema": "tap.amsterdam.documented_decisions.v1",
+  "researched_on": "2026-10-29",
+  "policy": "Only documented actions. No automatic inference of installed signs, effective taxi access, exact lane geometry, or current closures.",
+  "decision_actions": [
+    {
+      "record_id": "AMS21-291618-1",
+      "source_id": "AMS-2021-291618",
+      "decision_point": 1,
+      "location_as_described": "Weteringschans tussen Museumbrug/Spiegelgracht en Kleine-Gartmanplantsoen",
+      "decision_action_summary": "F15 met onderbord taxiontheffing Amsterdam niet van toepassing behalve AOV",
+      "decision_targets": "taxi-ontheffing behalve AOV",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS21-291618-2",
+      "source_id": "AMS-2021-291618",
+      "decision_point": 2,
+      "location_as_described": "Kleine-Gartmanplantsoen",
+      "decision_action_summary": "D5 met onderbord taxiontheffing Amsterdam niet van toepassing behalve AOV",
+      "decision_targets": "taxi-ontheffing behalve AOV",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-01",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 1,
+      "location_as_described": "Nieuwezijds Voorburgwal 3 / Spuistraat",
+      "decision_action_summary": "OB64+OB104 onder D5-L",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-02",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 2,
+      "location_as_described": "Nieuwe Foeliestraat / Rapenburg",
+      "decision_action_summary": "D5-R verwijderd",
+      "decision_targets": "overig",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-03",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 3,
+      "location_as_described": "Nieuwe Vijzelstraat 5 / Weteringschans",
+      "decision_action_summary": "OB64+OB104 onder C7a+C17",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-04",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 4,
+      "location_as_described": "Plantage Middenlaan 1 / Plantage Parklaan",
+      "decision_action_summary": "OB64+OB104 onder D5-L",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-05",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 5,
+      "location_as_described": "Hobbemastraat / P.C. Hooftstraat 28",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-06",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 6,
+      "location_as_described": "Hobbemastraat 11 / Jan Luijkenstraat 20",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-07",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 7,
+      "location_as_described": "Reguliersbreestraat 2 / Muntplein",
+      "decision_action_summary": "OB64+OB104 onder G7-zone",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-08",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 8,
+      "location_as_described": "Reguliersbreestraat 51 / Halvemaansteeg",
+      "decision_action_summary": "OB64+OB104 onder G7-zone",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-09",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 9,
+      "location_as_described": "Rokin 1 / Langebrugsteeg",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-10",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 10,
+      "location_as_described": "Rokin / Doelensluis",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-11",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 11,
+      "location_as_described": "Rokin 6 / Dam",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-12",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 12,
+      "location_as_described": "Utrechtsestraat 2 / Rembrandtplein",
+      "decision_action_summary": "OB64+OB104 onder C3",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-13",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 13,
+      "location_as_described": "Utrechtsestraat 17 / Herengracht",
+      "decision_action_summary": "OB64+OB104 onder C2",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-14",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 14,
+      "location_as_described": "Utrechtsestraat 104 / Prinsengracht",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-15",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 15,
+      "location_as_described": "Utrechtsestraat 149 / Frederiksplein",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-16",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 16,
+      "location_as_described": "Utrechtsestraat 124 / Utrechtsedwarsstraat",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-17",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 17,
+      "location_as_described": "Utrechtsestraat 48 / Keizersgracht",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-18",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 18,
+      "location_as_described": "Utrechtsestraat 57 / Keizersgracht",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-19",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 19,
+      "location_as_described": "Utrechtsestraat 48",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-20",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 20,
+      "location_as_described": "Utrechtsestraat 91",
+      "decision_action_summary": "OB64+OB104 onder C18",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-21",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 21,
+      "location_as_described": "Rembrandtplein / Reguliersbreestraat",
+      "decision_action_summary": "OB64+OB104 onder C1",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-22",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 22,
+      "location_as_described": "Leidseplein 26 / Marnixstraat",
+      "decision_action_summary": "OB64 onder G7-zone",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-23",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 23,
+      "location_as_described": "Leidsestraat 103 / Leidseplein",
+      "decision_action_summary": "OB64 onder G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-24",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 24,
+      "location_as_described": "Leidsestraat 97 / Lange Leidsedwarsstraat",
+      "decision_action_summary": "OB64 onder C2+G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-25",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 25,
+      "location_as_described": "Leidsestraat 100 / Lange Leidsedwarsstraat",
+      "decision_action_summary": "OB64 onder C2+G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-26",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 26,
+      "location_as_described": "Leidsestraat 64 / Kerkstraat",
+      "decision_action_summary": "OB64 onder G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-27",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 27,
+      "location_as_described": "Leidsestraat 59 / Kerkstraat",
+      "decision_action_summary": "OB64 onder G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-28",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 28,
+      "location_as_described": "Leidsestraat 82 / Prinsengracht",
+      "decision_action_summary": "OB64 onder G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-29",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 29,
+      "location_as_described": "Leidsestraat 79 / Prinsengracht",
+      "decision_action_summary": "OB64 onder C2+G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-30",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 30,
+      "location_as_described": "Leidsestraat 40 / Keizersgracht",
+      "decision_action_summary": "OB64 onder C2+G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-31",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 31,
+      "location_as_described": "Leidsestraat 31 / Keizersgracht",
+      "decision_action_summary": "OB64 onder C2+G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-32",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 32,
+      "location_as_described": "Leidsestraat 2 / Herengracht",
+      "decision_action_summary": "OB64 onder G7",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-33",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 33,
+      "location_as_described": "Damrak 1",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-34",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 34,
+      "location_as_described": "Marnixstraat 104 / Marnixplein",
+      "decision_action_summary": "OB64 onder D5-R",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-35",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 35,
+      "location_as_described": "Marnixstraat 148 / Bullebaksluis",
+      "decision_action_summary": "LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-36",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 36,
+      "location_as_described": "Prins Hendrikkade 33 / Martelaarsgracht",
+      "decision_action_summary": "OB64+OB104 onder G7-zone",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-37",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 37,
+      "location_as_described": "Stationsplein 7 / Oostertoegang",
+      "decision_action_summary": "F17 verwijderd; LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-38",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 38,
+      "location_as_described": "Marnixstraat 260 / Elandsgracht",
+      "decision_action_summary": "LIJNBUS-markering aangebracht",
+      "decision_targets": "markering",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-39",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 39,
+      "location_as_described": "Planciusstraat / Tussen de Bogen",
+      "decision_action_summary": "OB64+OB104 onder C17",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-40",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 40,
+      "location_as_described": "Korte Zoutkeetsgracht 1 / Planciusstraat",
+      "decision_action_summary": "C18 verwijderd",
+      "decision_targets": "overig",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-41",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 41,
+      "location_as_described": "Vijzelstraat 37 / Reguliersdwarsstraat",
+      "decision_action_summary": "OB64+OB104 onder C2",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-42",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 42,
+      "location_as_described": "Vijzelstraat 5",
+      "decision_action_summary": "OB64+OB104 onder D4",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-174698-43",
+      "source_id": "AMS-2026-174698",
+      "decision_point": 43,
+      "location_as_described": "Weteringschans 159 / Nieuwe Vijzelstraat",
+      "decision_action_summary": "OB64+OB104 onder C17",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_or_marking_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-187433-1",
+      "source_id": "AMS-2026-187433",
+      "decision_point": 1,
+      "location_as_described": "Pampuslaan, Centrumeiland",
+      "decision_action_summary": "F15 aanwijzing trambaan, tekening 1–2",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-187433-2",
+      "source_id": "AMS-2026-187433",
+      "decision_point": 2,
+      "location_as_described": "Pampuslaan, Centrumeiland",
+      "decision_action_summary": "F17 aanwijzing rijbaan voor lijnbus en tram, tekening 3",
+      "decision_targets": "lijnbus+tram",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-187433-3",
+      "source_id": "AMS-2026-187433",
+      "decision_point": 3,
+      "location_as_described": "Pampuslaan, Haveneiland",
+      "decision_action_summary": "F15 aanwijzing trambaan, tekening 4",
+      "decision_targets": "tram",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-376185-1",
+      "source_id": "AMS-2026-376185",
+      "decision_point": 1,
+      "location_as_described": "Busstation Holendrecht, locaties vb1 en vb22",
+      "decision_action_summary": "C1 onderbord met uitzondering lijnbussen/taxi's/touringcars verwijderd, vervangen door OB62: autobussen uitgezonderd",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-376185-2",
+      "source_id": "AMS-2026-376185",
+      "decision_point": 2,
+      "location_as_described": "Busstation Holendrecht, vb2 en vb3",
+      "decision_action_summary": "Twee E8-borden met uitsluitend passagiers in-/uitstappen verwijderd",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-376185-3",
+      "source_id": "AMS-2026-376185",
+      "decision_point": 3,
+      "location_as_described": "Busstation Holendrecht, vb30",
+      "decision_action_summary": "D6 met OB62, rijrichtinguitzondering autobussen",
+      "fact_type": "official_road_sign_decision",
+      "route_permission_created": false
+    },
+    {
+      "record_id": "AMS26-376185-4",
+      "source_id": "AMS-2026-376185",
+      "decision_point": 4,
+      "location_as_described": "Meibergdreef bij Busstation Holendrecht",
+      "decision_action_summary": "Verwijderen aanduiding LIJNBUS van wegdeel",
+      "fact_type": "official_road_marking_decision",
+      "route_permission_created": false
+    }
+  ],
+  "action_count": 52
+}
