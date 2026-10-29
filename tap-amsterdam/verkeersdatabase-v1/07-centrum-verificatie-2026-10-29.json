@@ -1,0 +1,215 @@
+{
+  "schema": "tap.amsterdam.corridor_documentary_crosscheck.v1",
+  "date": "2026-10-29",
+  "purpose": "Kruisverwijzing naar vastgestelde officiële publicaties, niet de definitieve verkeerskaart",
+  "source_ids": [
+    "AMS-2018-38595",
+    "AMS-2018-29822",
+    "AMS-2019-13250",
+    "AMS-2021-291618",
+    "AMS-2026-174698"
+  ],
+  "approved_lane_count": 0,
+  "live_map_changed": false,
+  "corridors": [
+    {
+      "corridor_id": "CENTRUM-DAMRAK",
+      "name": "Damrak",
+      "documentary_evidence": [
+        {
+          "source_id": "AMS-2018-38595",
+          "section": "Voorschrift 10, Centrum, item 5",
+          "record_id": "AMS18-10-05",
+          "documented_fact": "De regeling van 2018 sluit medegebruik van het genoemde Damrak-OV-traject in beide rijrichtingen uit."
+        },
+        {
+          "source_id": "AMS-2026-174698",
+          "section": "Besluitpunt 33",
+          "record_id": "AMS26-174698-33",
+          "documented_fact": "Besluit tot verwijderen F17 bij Damrak 1 en aanbrengen van markering LIJNBUS."
+        }
+      ],
+      "verified_documentary_claim_only": true,
+      "certified_current_road_access": false,
+      "verified_lane_geometry": null,
+      "verified_direction": null,
+      "verified_installed_signs": [],
+      "approved_for_live_map": false,
+      "requires_followup": [
+        "actuele uitwerking en verkeersborden",
+        "exacte baanbegrenzing en richting",
+        "latere besluiten na publicatie",
+        "ondertekening juridische controle en instructeur"
+      ]
+    },
+    {
+      "corridor_id": "CENTRUM-ROKIN",
+      "name": "Rokin",
+      "documentary_evidence": [
+        {
+          "source_id": "AMS-2018-38595",
+          "section": "Voorschrift 10, Centrum, item 6",
+          "record_id": "AMS18-10-06",
+          "documented_fact": "De regeling van 2018 sluit medegebruik van het genoemde Rokin-OV-traject in beide rijrichtingen uit."
+        },
+        {
+          "source_id": "AMS-2026-174698",
+          "section": "Besluitpunten 9, 10, 11",
+          "record_id": [
+            "AMS26-174698-09",
+            "AMS26-174698-10",
+            "AMS26-174698-11"
+          ],
+          "documented_fact": "Besluit tot vervangen F17 door LIJNBUS-wegmarkering op drie specifiek genoemde locaties van het Rokin."
+        }
+      ],
+      "verified_documentary_claim_only": true,
+      "certified_current_road_access": false,
+      "verified_lane_geometry": null,
+      "verified_direction": null,
+      "verified_installed_signs": [],
+      "approved_for_live_map": false,
+      "requires_followup": [
+        "actuele uitwerking en verkeersborden",
+        "exacte baanbegrenzing en richting",
+        "latere besluiten na publicatie",
+        "ondertekening juridische controle en instructeur"
+      ]
+    },
+    {
+      "corridor_id": "CENTRUM-UTRECHTSESTRAAT",
+      "name": "Utrechtsestraat",
+      "documentary_evidence": [
+        {
+          "source_id": "AMS-2018-38595",
+          "section": "Voorschrift 10, Centrum, item 7",
+          "record_id": "AMS18-10-07",
+          "documented_fact": "De regeling van 2018 sluit medegebruik van de genoemde OV-banen over de lengte van de Utrechtsestraat in beide richtingen uit."
+        },
+        {
+          "source_id": "AMS-2026-174698",
+          "section": "Besluitpunten 12 t/m 20",
+          "record_id": [
+            "AMS26-174698-12",
+            "AMS26-174698-13",
+            "AMS26-174698-14",
+            "AMS26-174698-15",
+            "AMS26-174698-16",
+            "AMS26-174698-17",
+            "AMS26-174698-18",
+            "AMS26-174698-19",
+            "AMS26-174698-20"
+          ],
+          "documented_fact": "Besluit tot aanbrengen OB64 en OB104 onder onder meer C2/C3 en C18 voor OV-modaliteiten op negen benoemde locaties."
+        },
+        {
+          "source_id": "AMS-2019-13250",
+          "section": "Besluit op pagina 2",
+          "record_id": "AMS19-13250-01",
+          "documented_fact": "In het besluit uit 2019 staat dat onderborden 'Lijnbusbaanontheffing niet van toepassing' worden geplaatst op toegangen vanuit de Utrechtsestraat die direct naar Rembrandtplein leiden."
+        }
+      ],
+      "verified_documentary_claim_only": true,
+      "certified_current_road_access": false,
+      "verified_lane_geometry": null,
+      "verified_direction": null,
+      "verified_installed_signs": [],
+      "approved_for_live_map": false,
+      "requires_followup": [
+        "actuele uitwerking en verkeersborden",
+        "exacte baanbegrenzing en richting",
+        "latere besluiten na publicatie",
+        "ondertekening juridische controle en instructeur"
+      ]
+    },
+    {
+      "corridor_id": "CENTRUM-REMBRANDTPLEIN",
+      "name": "Rembrandtplein / Amstelstraat / Reguliersbreestraat",
+      "documentary_evidence": [
+        {
+          "source_id": "AMS-2018-29822",
+          "section": "Besluitpunten 1 t/m 4",
+          "record_id": [
+            "AMS18-29822-01a",
+            "AMS18-29822-01b",
+            "AMS18-29822-01c",
+            "AMS18-29822-02a",
+            "AMS18-29822-03a",
+            "AMS18-29822-04a"
+          ],
+          "documented_fact": "Besluit tot wijziging G7- naar C1-zonering op drie locaties en een beperkt expliciet taxi-tijdvenster bij een van die locaties (Rembrandtplein)."
+        },
+        {
+          "source_id": "AMS-2019-13250",
+          "section": "Besluit pagina 2",
+          "record_id": "AMS19-13250-01",
+          "documented_fact": "Later besluit tot onderborden die de lijnbusbaanontheffing niet toepasselijk verklaren op direct naar het plein leidende gedeelten van drie straten."
+        },
+        {
+          "source_id": "AMS-2026-174698",
+          "section": "Besluitpunten 7, 8 en 21",
+          "record_id": [
+            "AMS26-174698-07",
+            "AMS26-174698-08",
+            "AMS26-174698-21"
+          ],
+          "documented_fact": "Besluit tot aanvullende OB64/OB104 voor lijnbussen en trams op Reguliersbreestraat / Rembrandtplein, niet voor taxi's."
+        }
+      ],
+      "verified_documentary_claim_only": true,
+      "certified_current_road_access": false,
+      "verified_lane_geometry": null,
+      "verified_direction": null,
+      "verified_installed_signs": [],
+      "approved_for_live_map": false,
+      "requires_followup": [
+        "actuele uitwerking en verkeersborden",
+        "exacte baanbegrenzing en richting",
+        "latere besluiten na publicatie",
+        "ondertekening juridische controle en instructeur"
+      ]
+    },
+    {
+      "corridor_id": "CENTRUM-WETERINGSCHANS",
+      "name": "Weteringschans / Kleine-Gartmanplantsoen",
+      "documentary_evidence": [
+        {
+          "source_id": "AMS-2018-38595",
+          "section": "Voorschrift 10, Centrum, item 10",
+          "record_id": "AMS18-10-10",
+          "documented_fact": "Oude 2018-uitsluiting benoemt tijdvenster 21:00–07:00; die tijdregeling niet zonder latere besluiten gebruiken."
+        },
+        {
+          "source_id": "AMS-2021-291618",
+          "section": "Besluitpunten 1 en 2",
+          "record_id": [
+            "AMS21-291618-1",
+            "AMS21-291618-2"
+          ],
+          "documented_fact": "Besluit F15-borden op trambaan Weteringschans met taxiontheffing niet van toepassing behalve AOV, en vergelijkbare D5-uitzondering Kleine-Gartmanplantsoen."
+        },
+        {
+          "source_id": "AMS-2026-174698",
+          "section": "Besluitpunten 3 en 43",
+          "record_id": [
+            "AMS26-174698-03",
+            "AMS26-174698-43"
+          ],
+          "documented_fact": "Aanvullende OV-onderbordbesluiten voor Nieuwe Vijzelstraat / Weteringschans, niet automatisch taxitoestemming."
+        }
+      ],
+      "verified_documentary_claim_only": true,
+      "certified_current_road_access": false,
+      "verified_lane_geometry": null,
+      "verified_direction": null,
+      "verified_installed_signs": [],
+      "approved_for_live_map": false,
+      "requires_followup": [
+        "actuele uitwerking en verkeersborden",
+        "exacte baanbegrenzing en richting",
+        "latere besluiten na publicatie",
+        "ondertekening juridische controle en instructeur"
+      ]
+    }
+  ]
+}
