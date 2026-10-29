@@ -69,3 +69,13 @@ Zie [FASE1_ONZEKERHEDEN_NIET_INGEVOERD.md](../FASE1_ONZEKERHEDEN_NIET_INGEVOERD.
 De GitHub-workflow \`tap-traffic-facts-validation.yml\` start automatisch op updates van de feitenbestanden. De controle weigert elke ingreep waarbij uit bronfeiten zonder verificatie actuele juridische toegang wordt afgeleid, of waarin er één of meer goedgekeurde wegsegmenten worden gepubliceerd voordat de expliciete gebruikersgoedkeuring binnen is.
 
 **De live oefenkaart is niet aangepast.** Oude geobserveerde rode markerpunten zijn geen bewijs voor actuele rijbaanverboden; daarvoor is het aparte brononderzoek noodzakelijk.
+
+## Uitgevoerde onderzoeksronde 29 oktober 2026 (centrum)
+
+- **Damrak:** 2018 voorschrift 10 vermeldt Damrak in beide richtingen; in 2026 onder besluitpunt 33 F17 vervangen door LIJNBUS-markering. Niet vastgesteld dat daarmee taxitoegang verandert.
+- **Rokin:** 2018 voorschrift 10 vermeldt Rokin in beide richtingen; in 2026 punten 9, 10 en 11 wijziging F17/LIJNBUS. Geen taxitoestemming uit afgeleid.
+- **Utrechtsestraat:** 2018 voorschrift 10 noemt gehele lengte en beide rijrichtingen; 2026 punten 12–20 geven uitzonderingen voor tram en (nacht)lijnbus op benoemde plekken. Hieruit is geen taxi-ontheffingsrecht afgeleid.
+- **Rembrandtplein:** 2018 verkeersbesluit stcrt-2018-29822 bevat specifieke C1-zonering en een gelimiteerd historisch taxi-venster voor één locatie; verkeersbesluit stcrt-2019-13250 bevat vervolgens aanvullende uitzonderingsborden op specifieke toegangen die de lijnbusbaanontheffing uitsluiten. De 2019 PDF verwijst naar een tekening die niet in de geraadpleegde versie zit; daarom geen exacte kaartbegrenzing gemaakt.
+- **Weteringschans:** 2021 gmb-2021-291618 is leidend bij lezen van de historische tijdsuitsluiting van 2018, specifiek voor het trambaanonderdeel en Kleine-Gartmanplantsoen. Reguliere autoweg ernaast niet met het OV-wegvak verwarren.
+
+Alle meldingen hierboven zijn **gedateerde documentfeiten**, geen actuele routeinstructies. De review van latere niet-gevonden besluiten en de daadwerkelijke borden/tekeningen blijft open. **De live kaart blijft onveranderd en de goedgekeurde taxi-wegsegmenten blijven op nul.**
