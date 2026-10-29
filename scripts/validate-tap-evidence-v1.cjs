@@ -7,11 +7,12 @@ const read=f=>JSON.parse(fs.readFileSync(path.join(DIR,f),"utf8"));
 const sources=read("01-officiele-bronnen.json"),original=read("02-bronfeiten-2018.json");
 const decisions=read("03-officiele-besluitpunten-2021-2026.json");
 const permit=read("04-gemeentelijke-ontheffingsfeiten.json");
+const rembrandt=read("06-rembrandtplein-besluiten-2018-2019.json");
 const released=read("05-vrijgegeven-wegvakken.geojson");
 function ensure(condition,message){if(!condition)throw new Error(message)}
 const refs=new Set(sources.sources.map(x=>x.id));
 ensure(refs.size===sources.sources.length,"Duplicate primary source ID");
-ensure(refs.size===6,"Expected exactly six primary sources in v1");
+ensure(refs.size===8,"Expected eight official sources including 2018/2019 Rembrandtplein decisions");
 for(const s of sources.sources){
   ensure(s.publisher==="Gemeente Amsterdam","Unverified institution");
   ensure(/^https:\/\/(zoek\.officielebekendmakingen\.nl|www\.amsterdam\.nl)\//.test(s.source_url),"Source not official "+s.id);
@@ -20,6 +21,8 @@ ensure(original.exclusion_entries.length===41,"2018 exclusions count mismatch");
 ensure(original.permit_rule_facts_list.length===10,"2018 permit conditions mismatch");
 ensure(decisions.decision_actions.length===52,"2021 and 2026 decision count mismatch");
 ensure(permit.statements.length===6,"Current permit info count mismatch");
+ensure(rembrandt.facts.length===7,"Rembrandtplein must have seven source-clause facts");
+ensure(rembrandt.facts.every(x=>refs.has(x.source_id)&&x.fact_type==="published_traffic_decision"&&x.geometry===null&&x.current_taxi_access===null&&x.physically_installed===null&&x.route_permission_created===false),"Unverified current condition or geometries entered in Rembrandtplein records");
 ensure(original.exclusion_entries.every(x=>refs.has(x.source_id)&&x.fact_type==="appears_in_2018_legal_exclusion_list"),"Wrong 2018 source claims");
 ensure(decisions.decision_actions.every(x=>refs.has(x.source_id)&&x.fact_type.startsWith("official_road_")),"Wrong decision source claims");
 ensure(original.exclusion_entries.map(x=>x.source_exclusion_index).every((id,i)=>id===i+1),"Exclusion order mismatch");
@@ -28,7 +31,7 @@ ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-174698").len
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-187433").length===3,"Pampuslaan must have 3 points");
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2026-376185").length===4,"Holendrecht must have 4 points");
 ensure(decisions.decision_actions.filter(x=>x.source_id==="AMS-2021-291618").length===2,"Weteringschans must have 2 points");
-const ids=[...original.exclusion_entries,...original.permit_rule_facts_list,...decisions.decision_actions,...permit.statements].map(x=>x.record_id||x.id);
+const ids=[...original.exclusion_entries,...original.permit_rule_facts_list,...decisions.decision_actions,...permit.statements,...rembrandt.facts].map(x=>x.record_id||x.id);
 ensure(ids.length===new Set(ids).size,"Duplicate record ID");
 const wetering=original.exclusion_entries.find(x=>x.road_or_place==="Weteringschans");
 ensure(wetering?.related_later_decision==="AMS-2021-291618"&&wetering.historical_window_is_not_current_guidance===true,"Old Weteringschans window must not be presented as current");
@@ -42,4 +45,4 @@ ensure(released.type==="FeatureCollection"&&Array.isArray(released.features),"Ap
 ensure(released.metadata.published_to_live_map===false,"No approval to publish to live map");
 ensure(released.features.length===0,"STOP: user has NOT authorized publishing any road segments");
 ensure(released.metadata.approved_segment_count===0,"Approved count must remain zero");
-console.log(JSON.stringify({result:"PASS",official_sources:refs.size,documented_2018_exclusions:41,documented_2018_conditions:10,documented_decision_actions:52,permit_information:6,approved_lane_geometries:0,live_map_changed:false},null,2));
+console.log(JSON.stringify({result:"PASS",official_sources:refs.size,rembrandtplein_source_clauses:rembrandt.facts.length,documented_2018_exclusions:41,documented_2018_conditions:10,documented_decision_actions:52,permit_information:6,approved_lane_geometries:0,live_map_changed:false},null,2));
