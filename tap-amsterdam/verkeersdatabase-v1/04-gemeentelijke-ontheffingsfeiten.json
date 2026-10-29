@@ -1,0 +1,35 @@
+{
+  "schema": "tap.amsterdam.municipal_permit_info.v1",
+  "researched_on": "2026-10-29",
+  "source_id": "AMS-GEM-LIJNBUSBAAN",
+  "official_source": "https://www.amsterdam.nl/ondernemen/taxichauffeurs/ontheffing-lijnbusbaan-aanvragen/",
+  "source_kind": "municipal_service_information",
+  "statements": [
+    {
+      "id": "PERMIT-01",
+      "fact": "Zelfstandige taxichauffeurs zonder TTO-lidmaatschap vragen zelfstandige lijnbusbaanontheffing aan."
+    },
+    {
+      "id": "PERMIT-02",
+      "fact": "Gecertificeerde rij-instructeurs hebben voor medegebruik een lijnbusbaanontheffing nodig."
+    },
+    {
+      "id": "PERMIT-03",
+      "fact": "TTO-chauffeurs: lijnbusbaanontheffing is onderdeel van hun taxivergunning."
+    },
+    {
+      "id": "PERMIT-04",
+      "fact": "De gemeente noemt een geldigheid van drie jaar."
+    },
+    {
+      "id": "PERMIT-05",
+      "fact": "Gemeentelijke aanvraagvoorwaarden noemen werkzaamheid als taxi-/rij-instructeur, CCV-certificaat en chauffeurskaart."
+    },
+    {
+      "id": "PERMIT-06",
+      "fact": "Rij-instructeur moet een verklaring van de gecertificeerde rijschool hebben."
+    }
+  ],
+  "street_access_results": [],
+  "route_permission_created": false
+}
