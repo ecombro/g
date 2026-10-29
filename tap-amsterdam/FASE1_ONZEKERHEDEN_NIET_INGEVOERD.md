@@ -54,3 +54,11 @@ Een kandidaat-segment **niet** publiceren zonder:
 Tot dan: geen kaartstatus, geen routevoorschrift; alleen een los onderzoeksissue.
 
 **De bestaande studiemap uit eerdere fasen is niet gewijzigd.** Ze bevat nog historische en indicatieve waarschuwingspunten; dit dossier is nadrukkelijk geen verklaring dat die bestaande visualisatie al juridisch correct is.
+
+## Praktijkmelding 29 oktober 2026 — Rembrandtplein, verdere afbakening
+
+De gebruiker meldt dat reguliere taxi's Rembrandtplein niet meer mogen berijden en alleen de toegang naar de TTO-taxistandplaats is uitgezonderd. De gemeente bevestigt een inrijverbod Rembrandtplein (met cameracontrole bij de Amstelstraat) en een pop-upstandplaats aan de oostzijde; een apart besluit uit 2018 beschrijft bovendien een TTO-standplaats op de Utrechtsestraat tussen huisnummers 18 en 9 met tijdvenster vr–zo 01:00–06:00. De Taxiverordening benoemt Rembrandtplein onder TTO-standplaatsmanagement.
+
+**Niet bevestigd voor implementatie:** de feitelijke precieze exclusieve inrijroute in 2026, of de Utrechtsestraat-standplaats en de oostelijke pop-upstandplaats dezelfde fysieke standplaats/route zijn; alle actuele onderborden, rijrichtingen en eventuele uitzonderingen. Geen toegangsgrafiek of juridische routeregel vrijgegeven totdat een officiële situatietekening en actuele borden zijn gekoppeld.
+
+Bronnen: https://www.amsterdam.nl/verkeer-vervoer/inrijverboden-binnenstad/ ; https://zoek.officielebekendmakingen.nl/stcrt-2018-63732.pdf ; https://lokaleregelgeving.overheid.nl/CVDR432706 .
