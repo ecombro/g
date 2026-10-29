@@ -1,0 +1,80 @@
+{
+  "schema": "tap.amsterdam.official_sources.v1",
+  "researched_on": "2026-10-29",
+  "source_count": 6,
+  "sources": [
+    {
+      "id": "AMS-2018-38595",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Voorschriften ontheffing medegebruik verharde vrijliggende bus-/trambanen door taxi's, herziening",
+      "publication_date": "2018-02-26",
+      "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2018-38595.html",
+      "source_type": "officieel_gemeenteblad",
+      "read_sections": [
+        "ALGEMEEN 1-5",
+        "LOCATIES 6-10",
+        "GEDRAG 11-15"
+      ],
+      "replaces_or_updates": "ouder lijnbusbaanbeleid; wijzigingen later afzonderlijk per besluit controleren"
+    },
+    {
+      "id": "AMS-2021-291618",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Weteringschans: taxi-ontheffing niet van toepassing behalve AOV op aangewezen OV-banen",
+      "publication_date": "2021-08-27",
+      "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2021-291618.html",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit 1",
+        "Besluit 2"
+      ]
+    },
+    {
+      "id": "AMS-2026-174698",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Centrum: aanpassingen bebording en markeringen ten behoeve van tram en lijnbus",
+      "publication_date": "2026-04-14",
+      "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2026-174698.html",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit 1-43"
+      ],
+      "note": "Toestaan van OV modaliteiten is niet identiek aan taxitoestemming."
+    },
+    {
+      "id": "AMS-2026-187433",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Pampuslaan: rijbanen uitsluitend voor trams en/of lijnbussen",
+      "publication_date": "2026-04-20",
+      "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2026-187433.html",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit 1-3"
+      ]
+    },
+    {
+      "id": "AMS-2026-376185",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Busstation Holendrecht: borden, parkeren en lijnbusmarkeringen",
+      "publication_date": "2026-08-06",
+      "source_url": "https://zoek.officielebekendmakingen.nl/gmb-2026-376185.html",
+      "source_type": "officieel_verkeersbesluit",
+      "read_sections": [
+        "Besluit 1-4"
+      ]
+    },
+    {
+      "id": "AMS-GEM-LIJNBUSBAAN",
+      "publisher": "Gemeente Amsterdam",
+      "title": "Ontheffing lijnbusbaan voor taxi's aanvragen",
+      "publication_date": null,
+      "source_url": "https://www.amsterdam.nl/ondernemen/taxichauffeurs/ontheffing-lijnbusbaan-aanvragen/",
+      "source_type": "actuele_gemeentelijke_informatiepagina",
+      "read_sections": [
+        "Wie een ontheffing moet aanvragen",
+        "Voorwaarden"
+      ],
+      "note": "Gemeentelijke servicepagina kan veranderen; geen zelfstandige rijbaantoestemming."
+    }
+  ]
+}
