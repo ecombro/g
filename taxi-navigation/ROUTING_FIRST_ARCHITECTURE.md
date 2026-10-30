@@ -3,6 +3,12 @@ Version: 1.0 / 30 October 2026
 Priority: prove **real permit-aware route computation + turn-by-turn adherence** before polishing UI.
 Status: feasibility specification; no provider integration or public release is yet verified.
 
+## 0. Repository and execution requirement
+- Claude must FIRST create a **brand-new PRIVATE GitHub repository** (`ecombro/taxi-navigation-nl` proposed name), with new local working directory and Git history. Do not build inside `ecombro/g` or fork its TAP map application.
+- Build and test routing graph, backend and Android proof LOCALLY on developer laptop/emulator/phone, using synthetic graph fixtures; source tracked in new GitHub repository.
+- GitHub is source management and optional test-only CI, not public hosting. Do not deploy the app, graph, API, tiles, accounts or paid services until owner explicitly approves hosting.
+- Import only these blueprint documents from the old repo as references. Existing legal source records remain research-only and the real-world approved lane dataset remains empty.
+
 ## 1. Hard product requirement
 A standard Google car route with color-coded restricted roads is **NOT the product**. Our output must be a path over a directed road graph constrained by:
 - vehicle/access profile, as legally applicable (ordinary taxi, independently permitted taxi, TTO, AOV);
