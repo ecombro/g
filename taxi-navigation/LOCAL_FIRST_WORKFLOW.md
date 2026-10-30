@@ -4,7 +4,7 @@ Status: MANDATORY for all Taxi Navigation work.
 
 ## The three environments (do not confuse them)
 1. **Local machine = execution and development**. Claude Code works in a local clone of the GitHub repository. Routing proof, tests, development API, local graph and Android app run on the developer's own machine (Android emulator or physical device). A phone/emulator can connect to a backend on the host via the correct emulator/USB/Wi‑Fi address, not a public server.
-2. **GitHub = source control and collaboration**. Repository \`ecombro/g\`; navigation project under \`taxi-navigation/\`. Use Git branches, commits, pull requests, code review and optional GitHub Actions that only run checks. GitHub is NOT where the app/backend is hosted for public users. Do not confuse GitHub Pages or raw.githack with backend hosting.
+2. **GitHub = source control and collaboration**. Create a BRAND-NEW PRIVATE repository `ecombro/taxi-navigation-nl` under the same authorized account. It is independent of the existing `ecombro/g` TAP study repo. Use Git branches, commits, pull requests and optional test-only GitHub Actions. GitHub is NOT application hosting.
 3. **Production hosting = later, separately approved**. Cloud API, managed DB, production routing graph, map tiles, user auth, public mobile distribution, paid subscriptions only after technical and data-compliance gates and explicit owner approval. No automated deployment from current work.
 
 ## Non-negotiable local-only rule
@@ -14,38 +14,34 @@ Status: MANDATORY for all Taxi Navigation work.
 - Do not overwrite or reconfigure the current \`tap-amsterdam/\` application.
 - "Local-first" doesn't forbid an internet call to a provider's existing API **if licensed, a test key is available, and costs/usage are explicitly bounded**. That is a dependency, not our server hosting. If unavailable, work in synthetic/offline mode and report the dependency accurately.
 
-## Folder layout (target, create only when useful)
-\`\`\`text
-ecombro/g/                           # existing GitHub repo, locally cloned
-  tap-amsterdam/                    # existing study tool, do not modify
-  taxi-navigation/
+## Folder layout (target inside NEW repository)
+```text
+taxi-navigation-nl/                 # brand-new, PRIVATE GitHub repository
+  README.md                         # local quickstart
+  docs/
     PRODUCT_SPEC.md
     ROUTING_FIRST_ARCHITECTURE.md
     CLAUDE_MASTERPROMPT.md
     LOCAL_FIRST_WORKFLOW.md
-    README.md                        # quickstart to create
-    routing-poc/                     # synthetic directed graph, tests, local server
-    android/                         # Android Studio Kotlin app when feasible
-    data/
-      fixtures/                      # fictional test street graph, no real permissions
-    docs/
-      BUILD_REPORT.md
-      GO_NO_GO.md
-      PROVIDER_CAPABILITY_TESTS.md
-    .env.example                     # placeholders only
-  .github/workflows/                 # optional test-only CI
-\`\`\`
-Do not create empty skeleton folders just for appearance; deliver actual runnable artifacts and their commands.
+    BUILD_REPORT.md
+    GO_NO_GO.md
+  routing-poc/                      # local executable synthetic routing prototype
+  android/                          # Android Kotlin app when SDK selection proves fit
+  data/fixtures/                   # fictional graph data, never invented real taxi access
+  .env.example                     # placeholder values only
+  .gitignore
+  .github/workflows/               # automated testing ONLY, no deployment
+```
 
 ## Development flow
-1. Clone \`ecombro/g\` on the user's machine; \`git pull\` on default branch. Never assume Claude has GitHub permissions: local work/commits can proceed without remote push.
-2. Create feature branch, e.g. \`feature/taxi-navigation-routing-poc\`. Keep unrelated files untouched.
-3. First create synthetic directed graph proof with zero proprietary API keys and no server hosting. Add deterministic automated tests including profiles, one-way, time windows, turns and rerouting.
-4. Run and document local checks (commands, expected outputs, exact versions). Provide one-command start for the local graph API if needed (e.g. script, or Docker Compose for development). Bind local backend to \`127.0.0.1\` by default and use sample data only.
-5. Next build Android proof (Android Studio on machine): emulate GPS and wrong turns, and verify exact prescribed custom route; external SDK key stays in untracked developer-local configuration.
-6. Save code/tests/docs as Git commits on feature branch. Request PR review before merging. GitHub Actions can run lint/unit tests/build offline; no deployment workflow.
-7. Only after routing GO decision, official street segment verification, explicit user approval: plan a **separate** staging environment and later production. Hosting/platform selection is its own design decision and cost estimate, not a hidden prerequisite.
-
+1. On the user's OWN computer create a new independent local folder and initialize Git: `mkdir -p ~/Projects/taxi-navigation-nl && cd ~/Projects/taxi-navigation-nl && git init -b main`.
+2. Add README, .gitignore and specs; make initial commit. With authenticated GitHub CLI create new PRIVATE repo: `gh repo create ecombro/taxi-navigation-nl --private --source=. --remote=origin --push`. If GitHub is unavailable, remain local and explain what authorization is needed.
+3. Verify new remote points to the NEW repository, is private and old `ecombro/g` is not a remote. Do NOT fork or clone the old TAP repository as the app foundation.
+4. Create `feature/routing-proof`; keep all navigation code/tests in the new repo. The old TAP repo and its traffic-evidence database are read-only research references, not production route permissions.
+5. First develop synthetic road graph and routing API locally, without hosting, keys or paid services. Create reproducible tests for profiles, turn restrictions, one-way, time windows and rerouting.
+6. Run local tests and Android Studio emulator/phone debugging. Document exact commands. Keep backend bound to `127.0.0.1` by default and use only test fixtures.
+7. Commit on feature branch and push to new private repo; open pull request for review. GitHub Actions may validate code but MUST NOT deploy or publish binaries.
+8. Later, after explicit owner approval and verified real road data, consider separately designed staging and production hosting. No cloud signups, DNS, CI deployment, subscription billing, or public URL are authorized now.
 ## First runnable milestone acceptance
 - New developer can clone repo and run routing proof on a laptop using documented commands; no cloud database/API and no account required.
 - No local route fixtures claim real Amsterdam access. All special-lane examples are fictional.
