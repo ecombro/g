@@ -100,5 +100,11 @@ G5: Revenue launch: store billing/legal approval, price test, customer support a
 The previous Amsterdam TAP map, official legal source records and OSM data in this repo are RESEARCH INPUT ONLY. Treat as untrusted for traffic routing. Do not alter or publish the current TAP map, its 41 warning points, source-only legal database, or its fail-closed CI gate as part of navigation MVP.
 All new code and specs under /taxi-navigation/. Ask for external accounts/keys only when a concrete blocked step requires them; provide mock mode and honest partial completion otherwise.
 
-## 10. Architecture correction (30 October 2026)
+## 10. Mandatory NEW repository and local development workflow
+- **Create a NEW independent PRIVATE GitHub repository** under the authorized user account: proposed name `ecombro/taxi-navigation-nl`. Not a fork or subdirectory of `ecombro/g`, and not a new GitHub account.
+- Develop and test the complete routing prototype and Android app LOCAL-FIRST on the user's computer. GitHub provides source control, branches, reviews and test-only CI; it is not our production host.
+- The previous `ecombro/g` TAP study app, datasets and traffic evidence registry are read-only research references. Do not modify them or copy unreconciled road legality claims.
+- No public deployment, production cloud accounts, app-store releases, database hosting, custom domains or subscription services until explicit user approval. See `LOCAL_FIRST_WORKFLOW.md`.
+
+## 11. Architecture correction (30 October 2026)
 This product explicitly rejects a Google Maps/Navigation SDK application that merely paints taxi restrictions on a conventional car route. Google's Navigation SDK cannot accept arbitrary user-defined custom route polylines. HERE SDK supports taxi routing and avoidance of segments, but may not enable special Amsterdam permit-authorized bus/tram lanes; HERE route import reconstruction is not guaranteed exact. A proprietary or open directed-road graph and custom-compatible turn-by-turn renderer may be required. Prototype true custom routing BEFORE building UI or monetization. See ROUTING_FIRST_ARCHITECTURE.md and CLAUDE_MASTERPROMPT.md.
