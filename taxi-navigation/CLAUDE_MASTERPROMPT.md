@@ -45,9 +45,9 @@ C. Google Maps:
 - No Google route/data scraping.
 
 ## 4. Deliverables — phase 0 (first implementation milestone)
-1) \`taxi-navigation/docs/DECISION_RECORD.md\`: comparison matrix for HERE (taxi+avoids), HERE route import, self-hosted GraphHopper/Valhalla, Mapbox/TomTom and Google. Score on directed-edge ALLOW, DENY, legal time windows, custom access overrides, exact turn-by-turn, reroute integrity, pricing/licensing, SDK availability, GDPR. For every claim cite official current docs; write UNKNOWN if not experimentally verified.
-2) \`taxi-navigation/docs/PROVIDER_CAPABILITY_TESTS.md\`: precise API calls, expected/actual responses, credentials needed, restrictions, and technical blockers. Never fabricate a successful online API run if keys are missing.
-3) \`taxi-navigation/routing-poc/\` runnable deterministic directed graph with synthetic **fictional** roads only, named Testlaan/Testbusbaan:
+1) \`docs/DECISION_RECORD.md\`: comparison matrix for HERE (taxi+avoids), HERE route import, self-hosted GraphHopper/Valhalla, Mapbox/TomTom and Google. Score on directed-edge ALLOW, DENY, legal time windows, custom access overrides, exact turn-by-turn, reroute integrity, pricing/licensing, SDK availability, GDPR. For every claim cite official current docs; write UNKNOWN if not experimentally verified.
+2) \`docs/PROVIDER_CAPABILITY_TESTS.md\`: precise API calls, expected/actual responses, credentials needed, restrictions, and technical blockers. Never fabricate a successful online API run if keys are missing.
+3) \`routing-poc/\` runnable deterministic directed graph with synthetic **fictional** roads only, named Testlaan/Testbusbaan:
    - directed edge data model and route solver,
    - legal-profile constraints, time windows with Europe/Amsterdam DST and validated turns/connections,
    - route verifier independent from the solver (does not trust its own result),
@@ -55,14 +55,14 @@ C. Google Maps:
    - deterministic reroute from a simulated wrong-turn.
    - tests that fail loudly for unsupported or ambiguous access.
    - Prefer TypeScript/Python for routing proof if self-contained; use a real graph engine when needed and state where functionality is mocked. A synthetic custom graph solver is a logical validation proof, **NOT** verification that HERE/OSM can serve Amsterdam road data. Never conflate them.
-4) Android proof of navigation **only after route engine proof**, in \`taxi-navigation/android/\` if SDK licenses/toolchain available:
+4) Android proof of navigation **only after route engine proof**, in \`android/\` if SDK licenses/toolchain available:
    - visual map and turn-by-turn along precomputed custom route,
    - test voice instructions and off-route replan,
    - reject any third-party provider reroute violating directed-edge profile constraints.
    - If SDK unavailable, create only a compiling interface/mock demonstration and label as NOT A REAL SDK INTEGRATION.
-5) Run tests and build commands; record exact successes/errors in \`taxi-navigation/docs/BUILD_REPORT.md\`.
+5) Run tests and build commands; record exact successes/errors in \`docs/BUILD_REPORT.md\`.
 6) README with quickstart, env vars in \`.env.example\` (NO real keys), Docker setup if required, architecture diagram in Mermaid, deployment/licensing needs.
-7) \`taxi-navigation/docs/GO_NO_GO.md\`: candid pass/fail decision. This must explain if the core requirement is proven, partially proven, or not proven; no promotional overstatement.
+7) \`docs/GO_NO_GO.md\`: candid pass/fail decision. This must explain if the core requirement is proven, partially proven, or not proven; no promotional overstatement.
 
 ## 5. Synthetic test matrix — non-negotiable
 Given parallel routes from A to B:
