@@ -15,17 +15,17 @@ Primary: independent licensed Dutch taxi chauffeurs who work in Amsterdam, inclu
 Next: TTO chauffeurs, chauffeurs with standalone lijnbusbaanontheffing, airport and executive chauffeurs, fleet managers.
 Excluded: public driving instructions claiming entitlement to use tram/bus lanes without verified applicable permit. Do not turn TAP training into the primary product.
 
-## 2. Core promise (two tiers, never conflate)
+## 2. One mandatory commercial promise
 Core/only marketable promise: "Routeberekening voor taxichauffeurs op basis van aantoonbaar geverifieerde lokale verkeersregels en het geldige ontheffingsprofiel." This is a PRODUCT GOAL, not yet true; NO public launch until tested. Generic car navigation is a temporary engineering baseline, never a standalone commercial MVP. Allow a private, visibly labelled **experimental** engineering demo with synthetic restrictions and zero claims of current legal taxi access.
 
 ## 3. User journeys
-J1. Driver launches app, handles location permission and Google navigation Terms, sees map in Amsterdam.
+J1. Driver launches app, accepts the selected provider's required terms and location permission, and sees a map of Amsterdam.
 J2. Search address/location via licensed provider, preview usual driving route, start turn-by-turn voice navigation, arrive and finish.
 J3. From destination nearby, driver opens verified taxi stand / pickup / dropoff detail with data provenance, last review and directions to the general address. If the stop position has not been validated, it MUST NOT be promoted as safe/legal.
 J4. Driver saves favorites (home address? optional, local-first), recent destinations (local only, delete control).
-J5. User selects profile "gewone taxi zonder speciale OV-ontheffing", "taxi met zelfstandige lijnbusbaanontheffing", "TTO" or "AOV" for informational display ONLY. These profiles NEVER unlock lanes through Google route engine in MVP.
+J5. User selects applicable access profile: normal taxi, independent lijnbusbaanontheffing, TTO or AOV. In the synthetic proof and later verified real road graph this must CHANGE route eligibility; user self-report alone never certifies actual entitlement.
 J6. Driver flags inaccurate stand / restricted road *when parked*: moderator queue, evidence/photo only with clear consent, no automatic publication.
-J7. In-app transparent panel: "Standaard autoroute van Google — geen toetsing aan Amsterdamse taxiontheffing".
+J7. Route preview shows active profile, source data version, restrictions/unknown coverage and explicit whether the route has been independently validated. No 'taxi-safe' claim for ordinary car routes.
 J8. Driving: non-essential menus disabled, no editing/reports while moving, clear auditory commands, large touch targets.
 
 ## 4. Feature tiers
@@ -50,7 +50,7 @@ J8. Driving: non-essential menus disabled, no editing/reports while moving, clea
 ### P2 Commercial validation
 - Invite-only 10–20 Amsterdam taxi drivers, real-trip QA in mixed conditions.
 - KPI: repeat weekly use, percentage valid pickup points, route errors, reports, support cost, navigation spend per active driver, willingness to pay. Interview users not only clicks.
-- Paid trial only for demonstrably differentiated reviewed POI/features. Pricing experiments €9.99 / €14.99 / €19.99 per month are hypotheses, not commitments; implement payment only after store-policy review and margins.
+- Paid trial only for proven, reviewed taxi-specific legal navigation after technical and real-world route validation. Pricing experiments €9.99 / €14.99 / €19.99 per month are hypotheses, not commitments; implement payment only after store-policy review and margins.
 
 ### P3 Expansion to more verified taxi segments (not postponing the routing engine itself)
 - Independent traffic-law source register with per-direction lane segment geometries, current applicability, permit profile and field-signed evidence.
@@ -63,8 +63,8 @@ J8. Driving: non-essential menus disabled, no editing/reports while moving, clea
 1. Onboarding, disclaimer, provider attribution, permit-profile information and permission.
 2. Main map with one dominant "Waarheen?" search, profile indicator, taxi POI overlays toggle.
 3. Search results with source and street vs entrance distinction, exact side-of-road only where known.
-4. Standard route preview (ETA, distance, toll optional), label "Standaard autoroute".
-5. Navigation HUD native Google guidance; no unrequested popups while driving.
+4. Permit-aware route preview (ETA, distance, restrictions), label with exact verified profile and rule coverage; mock routes strictly marked 'SYNTHETIC TEST'.
+5. Route-compatible turn-by-turn HUD (provider chosen only after exact custom route adherence is proven), no unrequested popups while driving.
 6. POI details: coordinate source + access confidence, access notes, review date.
 7. Favorites and recent; opt-out/delete.
 8. Submit correction (when parked), choose type, photo optional, consent.
@@ -75,7 +75,7 @@ J8. Driving: non-essential menus disabled, no editing/reports while moving, clea
 Working name: TaxiRoute NL (placeholder; perform trademark/domain check before publication). PRIMARY DIFFERENTIATOR IS PERMIT-AWARE ROUTING, NOT POINTS OF INTEREST.
 Tone: professional and high contrast; taxi/driver oriented, no unsupported "CBR-approved", "gemeentelijk gecertificeerd", "altijd legaal".
 Payment: avoid depending on premium road access that has not been validated; first pilot free.
-Primary ROI hypothesis: faster locating legitimate pickup/taxi-stand entrances, reduced confusion; this must be validated with measured pilot responses.
+Primary ROI hypothesis: legally appropriate taxi-specific routes save meaningful time compared with standard car routes while reducing incorrect entries; verify with measured route tests and pilot evidence. Taxi stand/pickup data is supporting value, not the core product.
 
 ## 7. Non-goals / prohibited shortcuts
 - NO scraping or copying Google Maps, Waze, Uber, Bolt, HERE or proprietary app datasets; only independently licensed feeds, official city publications, OSM with correct ODbL treatment, field studies and user reports after review.
@@ -91,7 +91,7 @@ Primary ROI hypothesis: faster locating legitimate pickup/taxi-stand entrances, 
 ## 8. Release gates
 G0: Custom taxi route COMPUTATION and route-following proven with deterministic synthetic fixtures, user profiles, time windows, directed edges and active rerouting; independent traces and failure tests. If unsupported: STOP and reconsider SDK, never quietly downgrade to ordinary navigation.
 G1: Navigation SDK/map stack selected based on ability to follow custom routes, preserve restrictions on reroute, commercial usage and measurable costs. Do not assume Google Navigation SDK accepts arbitrary routes.
-G2: POI published entries all reviewed with source, coordinate type and permitted reuse; admin corrections and kill switch working.
+G2: Verified legal road graph (directed special-lane access) plus route-verifier and reroute safety gates passed; supporting POIs reviewed, attributed, and correctable; kill switch working.
 G3: Driver pilot (10–20) only after real-world directed road access and fail-closed safety validation; feedback, request costs, incident review, acceptance criteria met.
 G4: Only after legal/field validations, separate taxi-specific routing launch with human-in-loop QA and explicit go/no-go.
 G5: Revenue launch: store billing/legal approval, price test, customer support and refund process, unit economics.
