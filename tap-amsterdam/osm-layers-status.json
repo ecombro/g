@@ -1,10 +1,10 @@
 {
   "tramsporen.geojson": {
-    "features": 1558,
-    "bytes": 864296
+    "features": 1560,
+    "bytes": 864896
   },
   "busbanen-osm.geojson": {
-    "features": 1876,
-    "bytes": 835942
+    "features": 1877,
+    "bytes": 836460
   }
 }
